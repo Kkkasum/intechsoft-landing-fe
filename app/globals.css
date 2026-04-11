@@ -1,26 +1,42 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+	--color-navy: #07101f;
+	--color-navy-2: #0d1b2f;
+	--color-navy-3: #122040;
+
+	--color-brand-blue: #1d6fe8;
+	--color-brand-blue-light: #3b8eff;
+	--color-brand-cyan: #00d2ff;
+
+	--font-display: 'Unbounded', sans-serif;
+	--font-body: 'Golos Text', sans-serif;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+@layer base {
+	html {
+		scroll-behavior: smooth;
+	}
+
+	body {
+		background-color: var(--color-navy);
+		color: #eef2ff;
+		font-family: var(--font-body);
+		-webkit-font-smoothing: antialiased;
+	}
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+@utility bg-hero-grid {
+	background-image:
+		linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+		linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+	background-size: 64px 64px;
+	mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black, transparent);
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@utility text-muted {
+	color: #8b9eb7;
+}
+@utility text-dim {
+	color: #4d6280;
 }
