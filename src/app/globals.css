@@ -9,6 +9,11 @@
 	--color-brand-blue-light: #3b8eff;
 	--color-brand-cyan: #00d2ff;
 
+	--color-surface: #161926;
+	--color-surface2: #1c2033;
+	--color-border: rgba(255, 255, 255, 0.07);
+	--color-active-border: rgba(59, 158, 255, 0.3);
+
 	--font-display: 'Unbounded', sans-serif;
 	--font-body: 'Golos Text', sans-serif;
 }

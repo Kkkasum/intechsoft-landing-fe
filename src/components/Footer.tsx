@@ -1,3 +1,4 @@
+import LogoImage from '@/src/assets/logo.png'
 import Image from 'next/image'
 import Link from 'next/link'
 
@@ -17,16 +18,14 @@ const serviceLinks = [
 ]
 
 const companyLinks = [
-	{ label: 'О нас', href: '/about' },
+	{ label: 'О нас', href: '/#about' },
 	{ label: 'Контакты', href: '/contacts' },
-	{ label: 'Новости', href: '/news' },
-	{ label: 'Вакансии', href: '/jobs' },
 ]
 
 export default function Footer() {
 	return (
 		<footer className='bg-navy-2 border-t border-white/7 pt-14 pb-8'>
-			<div className='max-w-[1200px] mx-auto px-8 md:px-12'>
+			<div className='max-w-300 mx-auto px-8 md:px-12'>
 				<div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[1.5fr_repeat(3,1fr)] gap-12 mb-12'>
 					{/* Brand */}
 					<div>
@@ -34,9 +33,9 @@ export default function Footer() {
 							href='/'
 							className='flex items-center gap-3 no-underline mb-4'
 						>
-							<div className='rounded-lg flex items-center justify-center flex-shrink-0'>
+							<div className='rounded-lg flex items-center justify-center shrink-0'>
 								<Image
-									src='/logo.jpg'
+									src={LogoImage}
 									alt=''
 									width={50}
 									height={50}
@@ -49,9 +48,8 @@ export default function Footer() {
 								СОФТ
 							</span>
 						</Link>
-						<p className='text-sm text-[#8B9EB7] leading-relaxed max-w-[220px]'>
-							Официальный представитель фирмы 1С в Махачкале с
-							1996 года.
+						<p className='text-sm text-[#8B9EB7] leading-relaxed max-w-55'>
+							Официальный представитель фирмы 1С с 1996 года.
 						</p>
 						<a
 							href='mailto:info@intechsoft.ru'
@@ -63,7 +61,7 @@ export default function Footer() {
 
 					{/* Products */}
 					<div>
-						<p className='text-[13px] font-semibold uppercase tracking-[0.1em] text-[#4D6280] mb-4'>
+						<p className='text-[13px] font-semibold uppercase tracking-widest text-[#4D6280] mb-4'>
 							Продукты
 						</p>
 						<ul className='flex flex-col gap-2.5 list-none'>
@@ -82,7 +80,7 @@ export default function Footer() {
 
 					{/* Services */}
 					<div>
-						<p className='text-[13px] font-semibold uppercase tracking-[0.1em] text-[#4D6280] mb-4'>
+						<p className='text-[13px] font-semibold uppercase tracking-widest text-[#4D6280] mb-4'>
 							Услуги
 						</p>
 						<ul className='flex flex-col gap-2.5 list-none'>
@@ -101,7 +99,7 @@ export default function Footer() {
 
 					{/* Company */}
 					<div>
-						<p className='text-[13px] font-semibold uppercase tracking-[0.1em] text-[#4D6280] mb-4'>
+						<p className='text-[13px] font-semibold uppercase tracking-widest text-[#4D6280] mb-4'>
 							Компания
 						</p>
 						<ul className='flex flex-col gap-2.5 list-none'>
@@ -119,7 +117,13 @@ export default function Footer() {
 						<p className='text-[13px] text-[#8B9EB7] leading-relaxed mt-6'>
 							г. Махачкала,
 							<br />
-							пр-кт Имама Шамиля, д. 65
+							пр-кт Гамидова, д. 18п, 710 офис
+						</p>
+
+						<p className='text-[13px] text-[#8B9EB7] leading-relaxed mt-6'>
+							г. Пятигорск,
+							<br />
+							ул. Крайнего, д. 49
 						</p>
 					</div>
 				</div>

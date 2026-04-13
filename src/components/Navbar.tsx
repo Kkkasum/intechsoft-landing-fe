@@ -1,5 +1,6 @@
 'use client'
 
+import LogoImage from '@/src/assets/logo.png'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useState } from 'react'
@@ -15,12 +16,12 @@ export default function Navbar() {
 	const [menuOpen, setMenuOpen] = useState(false)
 
 	return (
-		<nav className='fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-8 md:px-12 h-[68px] bg-navy/80 backdrop-blur-xl border-b border-white/7'>
+		<nav className='fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-8 md:px-12 h-17 bg-navy/80 backdrop-blur-xl border-b border-white/7'>
 			{/* Logo */}
 			<Link href='/' className='flex items-center gap-3 no-underline'>
-				<div className='rounded-lg flex items-center justify-center flex-shrink-0'>
+				<div className='rounded-lg flex items-center justify-center shrink-0'>
 					<Image
-						src='/logo.jpg'
+						src={LogoImage}
 						alt=''
 						width={50}
 						height={50}
