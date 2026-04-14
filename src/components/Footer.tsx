@@ -1,12 +1,17 @@
 import LogoImage from '@/src/assets/logo.png'
+import {
+	ROUTE_CATALOG_1C_INDUSTRY,
+	ROUTE_CATALOG_1C_PRODUCTS,
+	ROUTE_CATALOG_EQUIPMENT,
+	ROUTE_HOME,
+} from '@/src/routes'
 import Image from 'next/image'
 import Link from 'next/link'
 
 const productLinks = [
-	{ label: 'Торговое оборудование', href: '/product/torgovoe-oborudovanie' },
-	{ label: 'Онлайн-кассы', href: '/product/onlayn-kassy' },
-	{ label: 'Программные продукты', href: '/product/programmnye-produkty' },
-	{ label: 'Продукты 1С', href: '/product/programmnye-produkty/produkty-1s' },
+	{ label: 'Торговое оборудование', href: ROUTE_CATALOG_EQUIPMENT },
+	{ label: '1С-Продукты', href: ROUTE_CATALOG_1C_PRODUCTS },
+	{ label: 'Отраслевые решения 1С', href: ROUTE_CATALOG_1C_INDUSTRY },
 ]
 
 const serviceLinks = [
@@ -19,7 +24,7 @@ const serviceLinks = [
 
 const companyLinks = [
 	{ label: 'О нас', href: '/#about' },
-	{ label: 'Контакты', href: '/contacts' },
+	{ label: 'FAQ', href: '/#faq' },
 ]
 
 export default function Footer() {
@@ -30,7 +35,7 @@ export default function Footer() {
 					{/* Brand */}
 					<div>
 						<Link
-							href='/'
+							href={ROUTE_HOME}
 							className='flex items-center gap-3 no-underline mb-4'
 						>
 							<div className='rounded-lg flex items-center justify-center shrink-0'>

@@ -1,3 +1,8 @@
+import {
+	ROUTE_CATALOG_1C_INDUSTRY,
+	ROUTE_CATALOG_1C_PRODUCTS,
+	ROUTE_CATALOG_EQUIPMENT,
+} from '@/src/routes'
 import Link from 'next/link'
 
 const products = [
@@ -18,9 +23,15 @@ const products = [
 		),
 		title: 'Торговое оборудование',
 		description:
-			'Полный спектр оборудования для автоматизации торговли: от онлайн-касс до принтеров чеков и весов.',
-		tags: ['Онлайн-кассы', 'Весы', 'Принтеры чеков', 'Штрих-коды'],
-		href: '/product/torgovoe-oborudovanie',
+			'Профессиональное оснащение для эффективной работы торговой точки. Надежность, производительность и удобство — залог успешных продаж и довольных клиентов.',
+		tags: [
+			'Онлайн-кассы',
+			'Весы',
+			'Принтеры чеков',
+			'Штрих-коды',
+			'Денежные ящики',
+		],
+		href: ROUTE_CATALOG_EQUIPMENT,
 	},
 	{
 		icon: (
@@ -38,11 +49,11 @@ const products = [
 				<path d='M2 12l10 5 10-5' />
 			</svg>
 		),
-		title: 'Программные продукты',
+		title: '1С-Продукты',
 		description:
-			'ПО от ведущих разработчиков для автоматизации управленческого, бухгалтерского и складского учёта.',
-		tags: ['1С:Бухгалтерия', '1С:Розница', '1С:УНФ'],
-		href: '/product/programmnye-produkty',
+			'Автоматизация бизнеса на платформе 1С — гарантия порядка, точности и контроля. Ваши операции становятся прозрачными и управляемыми.',
+		tags: ['Лицензии 1С', '1С-Сервисы', '1С-Битрикс24'],
+		href: ROUTE_CATALOG_1C_PRODUCTS,
 	},
 	{
 		icon: (
@@ -58,11 +69,17 @@ const products = [
 				<path d='M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z' />
 			</svg>
 		),
-		title: 'Онлайн-кассы',
+		title: 'Отраслевые решения 1С',
 		description:
-			'Фискальные регистраторы и кассовые аппараты под 54-ФЗ. Подключение, настройка и гарантийное обслуживание.',
-		tags: ['Эвотор', 'АТОЛ', 'Денежные ящики'],
-		href: '/product/onlayn-kassy',
+			'Готовые отраслевые решения 1С — идеальный инструмент для вашего сегмента рынка. Максимум эффективности и минимум адаптации.',
+		tags: [
+			'Пищевая промышленность',
+			'Здравоохранение',
+			'Логистика и склад',
+			'Строительство',
+			'Полиграфия',
+		],
+		href: ROUTE_CATALOG_1C_INDUSTRY,
 	},
 ]
 
@@ -127,7 +144,7 @@ function ProductCard({
 			</div>
 
 			{/* Icon */}
-			<div className='w-[52px] h-[52px] rounded-xl bg-brand-blue/10 border border-brand-blue/35 flex items-center justify-center mb-5 text-brand-blue-light'>
+			<div className='w-13 h-13 rounded-xl bg-brand-blue/10 border border-brand-blue/35 flex items-center justify-center mb-5 text-brand-blue-light'>
 				{icon}
 			</div>
 

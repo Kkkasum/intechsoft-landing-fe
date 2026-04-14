@@ -1,6 +1,7 @@
 'use client'
 
 import LogoImage from '@/src/assets/logo.png'
+import { ROUTE_HOME } from '@/src/routes'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useState } from 'react'
@@ -18,7 +19,10 @@ export default function Navbar() {
 	return (
 		<nav className='fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-8 md:px-12 h-17 bg-navy/80 backdrop-blur-xl border-b border-white/7'>
 			{/* Logo */}
-			<Link href='/' className='flex items-center gap-3 no-underline'>
+			<Link
+				href={ROUTE_HOME}
+				className='flex items-center gap-3 no-underline'
+			>
 				<div className='rounded-lg flex items-center justify-center shrink-0'>
 					<Image
 						src={LogoImage}
@@ -86,7 +90,7 @@ export default function Navbar() {
 
 			{/* Mobile drawer */}
 			{menuOpen && (
-				<div className='md:hidden absolute top-[68px] left-0 right-0 bg-navy-2 border-b border-white/7 px-8 py-6 flex flex-col gap-4'>
+				<div className='md:hidden absolute top-17 left-0 right-0 bg-navy-2 border-b border-white/7 px-8 py-6 flex flex-col gap-4'>
 					{navLinks.map(l => (
 						<Link
 							key={l.href}

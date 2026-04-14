@@ -119,7 +119,7 @@ export default function Hero() {
 							компаний
 						</h1>
 
-						<p className='text-[18px] text-[#8B9EB7] leading-relaxed max-w-[520px] mb-10'>
+						<p className='text-[18px] text-[#8B9EB7] leading-relaxed max-w-130 mb-10'>
 							Подберём и поставим торговое оборудование,
 							онлайн-кассы и программные продукты от ведущих
 							разработчиков. Бесплатная консультация — в любое

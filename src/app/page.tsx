@@ -1,14 +1,14 @@
-import About from '@/src/components/About'
-import CTA from '@/src/components/CTA'
-import Faq from '@/src/components/Faq'
 import Footer from '@/src/components/Footer'
-import Hero from '@/src/components/Hero'
+import About from '@/src/components/home/About'
+import CTA from '@/src/components/home/CTA'
+import Faq from '@/src/components/home/Faq'
+import Hero from '@/src/components/home/Hero'
+import Products from '@/src/components/home/Products'
+import Review from '@/src/components/home/Review'
+import Services from '@/src/components/home/Services'
 import Navbar from '@/src/components/Navbar'
-import Products from '@/src/components/Products'
-import Review from '@/src/components/Review'
-import Services from '@/src/components/Services'
 
-export default function Home() {
+export default function HomePage() {
 	return (
 		<div>
 			<Navbar />

@@ -1,3 +1,4 @@
+import { ROUTE_STUDY } from '@/src/routes'
 import Link from 'next/link'
 
 const services = [
@@ -78,7 +79,7 @@ export default function Services() {
 					))}
 
 					<Link
-						href='/study'
+						href={ROUTE_STUDY}
 						className='p-8 bg-navy hover:bg-navy-2 transition-colors duration-200 cursor-pointer relative'
 					>
 						<h3 className='text-[15px] font-semibold text-[#EEF2FF] leading-snug mt-8 mb-2.5'>
