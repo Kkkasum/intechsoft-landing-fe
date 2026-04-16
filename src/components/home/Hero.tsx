@@ -1,6 +1,6 @@
 'use client'
 
-import OneCIcon from '@/src/components/ui/icons/1СIcon'
+import OneCIcon from '@/src/components/ui/icons/1CIcon'
 import { ROUTE_STUDY } from '@/src/routes'
 import Link from 'next/link'
 import { useState } from 'react'

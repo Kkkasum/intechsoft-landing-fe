@@ -1,4 +1,4 @@
-import OneCIcon from '@/src/components/ui/icons/1СIcon'
+import OneCIcon from '@/src/components/ui/icons/1CIcon'
 import { Product } from '@/src/types/catalog.type'
 
 interface IProps {
