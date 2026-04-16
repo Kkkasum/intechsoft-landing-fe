@@ -1,16 +1,26 @@
-import OneCIcon from '@/src/components/ui/icons/1СIcon'
 import { Product } from '@/src/types/catalog.type'
 
 interface IProps {
 	product: Product
 }
 
-export default function Row({ product }: IProps) {
+export default function EquipmentRow({ product }: IProps) {
 	return (
 		<div className='flex items-center gap-6 bg-white/4 border border-white/7 rounded-2xl px-6 py-5 hover:bg-white/7 hover:border-brand-blue/35 transition-all duration-200 group'>
 			{/* Image placeholder */}
 			<div className='w-20 h-20 shrink-0 rounded-xl bg-white/4 border border-white/7 flex items-center justify-center'>
-				<OneCIcon width='36' height='24' />
+				<svg
+					className='w-9 h-9 text-[#4D6280]'
+					viewBox='0 0 24 24'
+					fill='none'
+					stroke='currentColor'
+					strokeWidth={1.4}
+					strokeLinecap='round'
+					strokeLinejoin='round'
+				>
+					<rect x='2' y='3' width='20' height='14' rx='2' />
+					<path d='M8 21h8M12 17v4' />
+				</svg>
 			</div>
 
 			{/* Info */}
@@ -33,22 +43,6 @@ export default function Row({ product }: IProps) {
 					)}
 				</div>
 			</div>
-
-			{/* Arrow */}
-			{/* <div className='shrink-0 w-9 h-9 rounded-xl flex items-center justify-center border border-white/7 text-[#4D6280] group-hover:border-brand-blue/35 group-hover:text-brand-blue-light transition-all duration-150'>
-				<svg
-					width='14'
-					height='14'
-					viewBox='0 0 16 16'
-					fill='none'
-					stroke='currentColor'
-					strokeWidth={1.8}
-					strokeLinecap='round'
-					strokeLinejoin='round'
-				>
-					<path d='M6 3l5 5-5 5' />
-				</svg>
-			</div> */}
 		</div>
 	)
 }

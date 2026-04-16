@@ -1,3 +1,4 @@
+import ArrowIcon from '@/src/components/ui/icons/ArrowIcon'
 import { ROUTE_STUDY } from '@/src/routes'
 import Link from 'next/link'
 
@@ -16,6 +17,7 @@ const services = [
 		num: '03',
 		name: 'Подключение торгового оборудования',
 		desc: 'Подбор, поставка, подключение и настройка оборудования под ваши задачи.',
+		to: ROUTE_STUDY,
 	},
 	{
 		num: '04',
@@ -31,6 +33,7 @@ const services = [
 		num: '06',
 		name: 'Тех. обслуживание магазинов',
 		desc: 'Обслуживание кассовых зон, POS-систем и торгового оборудования.',
+		to: ROUTE_STUDY,
 	},
 	{
 		num: '07',
@@ -41,6 +44,12 @@ const services = [
 		num: '08',
 		name: 'Автоматизация ресторанов и кафе',
 		desc: 'Комплексная автоматизация HoReCa: кухня, кассы, меню, учёт — всё под ключ.',
+	},
+	{
+		num: '09',
+		name: 'Курсы профессиональной подготовки по 1С',
+		desc: 'Стать экспертом в работе с 1С — повысить свою конкурентоспособность и овладеть востребованными навыками',
+		to: ROUTE_STUDY,
 	},
 ]
 
@@ -61,47 +70,42 @@ export default function Services() {
 
 				{/* Grid table */}
 				<div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-white/7 border border-white/7 rounded-2xl overflow-hidden'>
-					{services.map(s => (
-						<div
-							key={s.num}
-							className='p-8 bg-navy hover:bg-navy-2 transition-colors duration-200 cursor-default'
-						>
-							<p className='font-display text-[11px] font-semibold text-[#4D6280] tracking-[0.08em] mb-4'>
-								{s.num}
-							</p>
-							<h3 className='text-[15px] font-semibold text-[#EEF2FF] leading-snug mb-2.5'>
-								{s.name}
-							</h3>
-							<p className='text-[13px] text-[#8B9EB7] leading-[1.55]'>
-								{s.desc}
-							</p>
-						</div>
-					))}
-
-					<Link
-						href={ROUTE_STUDY}
-						className='p-8 bg-navy hover:bg-navy-2 transition-colors duration-200 cursor-pointer relative'
-					>
-						<h3 className='text-[15px] font-semibold text-[#EEF2FF] leading-snug mt-8 mb-2.5'>
-							Учебный центр
-						</h3>
-						<p className='text-[13px] text-[#8B9EB7] leading-[1.55]'>
-							Обучение
-						</p>
-
-						<div className='absolute bottom-7 right-7 text-[#4D6280]'>
-							<svg
-								width='36'
-								height='36'
-								viewBox='0 0 16 16'
-								fill='none'
-								stroke='currentColor'
-								strokeWidth={1.8}
+					{services.map(s =>
+						s.to ? (
+							<Link
+								key={s.num}
+								href={ROUTE_STUDY}
+								className='p-8 bg-navy hover:bg-navy-2 transition-colors duration-200 cursor-pointer relative'
 							>
-								<path d='M3 8L13 8M13 8L9 4M13 8L9 12' />
-							</svg>
-						</div>
-					</Link>
+								<p className='font-display text-[11px] font-semibold text-[#4D6280] tracking-[0.08em] mb-4'>
+									{s.num}
+								</p>
+								<h3 className='text-[15px] font-semibold text-[#EEF2FF] leading-snug mb-2.5'>
+									{s.name}
+								</h3>
+								<p className='text-[13px] text-[#8B9EB7] leading-[1.55]'>
+									{s.desc}
+								</p>
+
+								<ArrowIcon />
+							</Link>
+						) : (
+							<div
+								key={s.num}
+								className='p-8 bg-navy hover:bg-navy-2 transition-colors duration-200 cursor-default'
+							>
+								<p className='font-display text-[11px] font-semibold text-[#4D6280] tracking-[0.08em] mb-4'>
+									{s.num}
+								</p>
+								<h3 className='text-[15px] font-semibold text-[#EEF2FF] leading-snug mb-2.5'>
+									{s.name}
+								</h3>
+								<p className='text-[13px] text-[#8B9EB7] leading-[1.55]'>
+									{s.desc}
+								</p>
+							</div>
+						),
+					)}
 				</div>
 			</div>
 		</section>

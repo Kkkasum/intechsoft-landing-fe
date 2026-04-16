@@ -4,6 +4,7 @@ import {
 	ROUTE_CATALOG_1C_PRODUCTS,
 	ROUTE_CATALOG_EQUIPMENT,
 	ROUTE_HOME,
+	ROUTE_STUDY,
 } from '@/src/routes'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -14,13 +15,7 @@ const productLinks = [
 	{ label: 'Отраслевые решения 1С', href: ROUTE_CATALOG_1C_INDUSTRY },
 ]
 
-const serviceLinks = [
-	{ label: 'Сопровождение 1С (ИТС)', href: '/services/its' },
-	{ label: 'Внедрение Битрикс 24', href: '/services/bitrix24' },
-	{ label: 'Абонентское сопровождение', href: '/services/abonement' },
-	{ label: 'Автоматизация ресторанов', href: '/services/restoran' },
-	{ label: 'ФГИС Меркурий', href: '/services/mercury' },
-]
+const serviceLinks = [{ label: 'Учебный центр', href: ROUTE_STUDY }]
 
 const companyLinks = [
 	{ label: 'О нас', href: '/#about' },

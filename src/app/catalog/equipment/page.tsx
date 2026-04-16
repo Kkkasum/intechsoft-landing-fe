@@ -1,8 +1,10 @@
 'use client'
 
-import Row from '@/src/components/catalog/Row'
+import CTA from '@/src/components/catalog/CTA'
+import EquipmentRow from '@/src/components/catalog/EquipmentRow'
 import Footer from '@/src/components/Footer'
 import Navbar from '@/src/components/Navbar'
+import { ROUTE_HOME } from '@/src/routes'
 import { Category } from '@/src/types/catalog.type'
 import Link from 'next/link'
 import { useState } from 'react'
@@ -22,19 +24,19 @@ const catalog: Category[] = [
 				id: 1,
 				name: 'АТОЛ СТБ 5 Смарт-терминал',
 				subcat: 'smart',
-				badge: 'in_stock',
+				badge: 'on_order',
 			},
 			{
 				id: 2,
 				name: 'АТОЛ 91Ф Фискальный регистратор',
 				subcat: 'fisk',
-				badge: 'in_stock',
+				badge: 'on_order',
 			},
 			{
 				id: 3,
 				name: 'Эвотор 5 Смарт-терминал',
 				subcat: 'smart',
-				badge: 'in_stock',
+				badge: 'on_order',
 			},
 			{
 				id: 4,
@@ -46,13 +48,13 @@ const catalog: Category[] = [
 				id: 5,
 				name: 'Эвотор 10 Смарт-терминал',
 				subcat: 'smart',
-				badge: 'in_stock',
+				badge: 'on_order',
 			},
 			{
 				id: 6,
 				name: 'АТОЛ Connect. ИТС на 1 год',
 				subcat: 'prosh',
-				badge: 'in_stock',
+				badge: 'on_order',
 			},
 		],
 	},
@@ -70,19 +72,19 @@ const catalog: Category[] = [
 				id: 7,
 				name: 'Honeywell Voyager 1250g Сканер',
 				subcat: 'scan',
-				badge: 'in_stock',
+				badge: 'on_order',
 			},
 			{
 				id: 8,
 				name: 'Zebra DS2208 Сканер штрих-кода',
 				subcat: 'scan',
-				badge: 'in_stock',
+				badge: 'on_order',
 			},
 			{
 				id: 9,
 				name: 'АТОЛ BP41 Принтер этикеток',
 				subcat: 'print',
-				badge: 'in_stock',
+				badge: 'on_order',
 			},
 			{
 				id: 10,
@@ -94,7 +96,7 @@ const catalog: Category[] = [
 				id: 11,
 				name: 'Newland MT65 Терминал сбора данных',
 				subcat: 'ter',
-				badge: 'in_stock',
+				badge: 'on_order',
 			},
 		],
 	},
@@ -112,19 +114,19 @@ const catalog: Category[] = [
 				id: 12,
 				name: 'CAS AP-EX06 Торговые весы',
 				subcat: 'torg',
-				badge: 'in_stock',
+				badge: 'on_order',
 			},
 			{
 				id: 13,
 				name: 'Mettler Toledo bPRO Торговые весы',
 				subcat: 'torg',
-				badge: 'in_stock',
+				badge: 'on_order',
 			},
 			{
 				id: 14,
 				name: 'CAS LP-1.5R Весы с печатью',
 				subcat: 'cen',
-				badge: 'in_stock',
+				badge: 'on_order',
 			},
 			{
 				id: 15,
@@ -136,7 +138,7 @@ const catalog: Category[] = [
 				id: 16,
 				name: 'CAS SW-20 Фасовочные весы',
 				subcat: 'fas',
-				badge: 'in_stock',
+				badge: 'on_order',
 			},
 		],
 	},
@@ -153,19 +155,19 @@ const catalog: Category[] = [
 				id: 17,
 				name: 'АТОЛ CD-410-B Денежный ящик',
 				subcat: 'avt',
-				badge: 'in_stock',
+				badge: 'on_order',
 			},
 			{
 				id: 18,
 				name: 'Posiflex CR-4000 Денежный ящик',
 				subcat: 'avt',
-				badge: 'in_stock',
+				badge: 'on_order',
 			},
 			{
 				id: 19,
 				name: 'Mercury CD-330 Денежный ящик',
 				subcat: 'ruch',
-				badge: 'in_stock',
+				badge: 'on_order',
 			},
 		],
 	},
@@ -183,19 +185,19 @@ const catalog: Category[] = [
 				id: 20,
 				name: 'Verifone VX820 Пинпад',
 				subcat: 'pin',
-				badge: 'in_stock',
+				badge: 'on_order',
 			},
 			{
 				id: 21,
 				name: 'Ingenico iPP350 Пинпад',
 				subcat: 'pin',
-				badge: 'in_stock',
+				badge: 'on_order',
 			},
 			{
 				id: 22,
 				name: 'Dors 1200 Счётчик банкнот',
 				subcat: 'schot',
-				badge: 'in_stock',
+				badge: 'on_order',
 			},
 			{
 				id: 23,
@@ -207,7 +209,7 @@ const catalog: Category[] = [
 				id: 24,
 				name: 'Dors 100 Детектор валют',
 				subcat: 'det',
-				badge: 'in_stock',
+				badge: 'on_order',
 			},
 		],
 	},
@@ -225,25 +227,25 @@ const catalog: Category[] = [
 				id: 25,
 				name: 'Posiflex PT-6900 POS-система',
 				subcat: 'pos',
-				badge: 'in_stock',
+				badge: 'on_order',
 			},
 			{
 				id: 26,
 				name: 'АТОЛ Sigma 10 POS-система',
 				subcat: 'pos',
-				badge: 'in_stock',
+				badge: 'on_order',
 			},
 			{
 				id: 27,
 				name: 'Posiflex PD-300 Дисплей покупателя',
 				subcat: 'disp',
-				badge: 'in_stock',
+				badge: 'on_order',
 			},
 			{
 				id: 28,
 				name: 'АТОЛ 22v10 Принтер чеков',
 				subcat: 'print',
-				badge: 'in_stock',
+				badge: 'on_order',
 			},
 			{
 				id: 29,
@@ -267,31 +269,31 @@ const catalog: Category[] = [
 				id: 30,
 				name: 'Лента чековая 57×40 мм (10 рулонов)',
 				subcat: 'lenta',
-				badge: 'in_stock',
+				badge: 'on_order',
 			},
 			{
 				id: 31,
 				name: 'Лента чековая 80×80 мм (10 рулонов)',
 				subcat: 'lenta',
-				badge: 'in_stock',
+				badge: 'on_order',
 			},
 			{
 				id: 32,
 				name: 'Этикетки 58×40 мм (1000 шт)',
 				subcat: 'etik',
-				badge: 'in_stock',
+				badge: 'on_order',
 			},
 			{
 				id: 33,
 				name: 'Этикетки 40×25 мм (2000 шт)',
 				subcat: 'etik',
-				badge: 'in_stock',
+				badge: 'on_order',
 			},
 			{
 				id: 34,
 				name: 'Красящая лента для Zebra GX420',
 				subcat: 'kras',
-				badge: 'in_stock',
+				badge: 'on_order',
 			},
 		],
 	},
@@ -318,10 +320,10 @@ export default function EquipmentPage() {
 			<Navbar />
 
 			{/* Page header */}
-			<div className='pt-[68px] bg-navy border-b border-white/7'>
-				<div className='max-w-[1200px] mx-auto px-8 md:px-12 py-10'>
+			<div className='pt-17 bg-navy border-b border-white/7'>
+				<div className='max-w-300 mx-auto px-8 md:px-12 py-10'>
 					<Link
-						href='/'
+						href={ROUTE_HOME}
 						className='inline-flex items-center gap-2 text-[#8B9EB7] text-sm hover:text-brand-blue-light transition-colors no-underline mb-5'
 					>
 						<svg
@@ -411,7 +413,7 @@ export default function EquipmentPage() {
 							{/* Products list */}
 							<div className='flex flex-col gap-3'>
 								{products.map(p => (
-									<Row key={p.id} product={p} />
+									<EquipmentRow key={p.id} product={p} />
 								))}
 
 								{products.length === 0 && (
@@ -424,6 +426,8 @@ export default function EquipmentPage() {
 					</div>
 				</div>
 			</div>
+
+			<CTA />
 
 			<Footer />
 		</main>

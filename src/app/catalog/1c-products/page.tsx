@@ -3,11 +3,133 @@
 import Row from '@/src/components/catalog/Row'
 import Footer from '@/src/components/Footer'
 import Navbar from '@/src/components/Navbar'
+import { ROUTE_HOME } from '@/src/routes'
 import { Category } from '@/src/types/catalog.type'
 import Link from 'next/link'
 import { useState } from 'react'
 
 const catalog: Category[] = [
+	{
+		id: 'popular',
+		label: 'Популярные товары',
+		subcats: [
+			{ id: 'all', label: 'Все' },
+			{ id: 'regulated', label: 'Регламентированный учет' },
+			{ id: 'trade-warehouse', label: 'Торговый и складской учет' },
+			{ id: 'management', label: 'Управленческий учет' },
+			{ id: 'complex', label: 'Комплексные решения' },
+		],
+		products: [
+			{
+				id: 1,
+				name: '1С:Бухгалтерия 8',
+				subcat: 'regulated',
+				badge: 'in_stock',
+			},
+			{
+				id: 2,
+				name: '1С:Зарплата и управление персоналом 8',
+				subcat: 'regulated',
+				badge: 'in_stock',
+			},
+			{
+				id: 3,
+				name: '1С:Бухгалтерия КОРП МСФО',
+				subcat: 'regulated',
+				badge: 'in_stock',
+			},
+			{
+				id: 4,
+				name: '1C:Налоговый мониторинг. Бухгалтерия КОРП МСФО',
+				subcat: 'regulated',
+				badge: 'in_stock',
+			},
+			{
+				id: 5,
+				name: '1С:Управление торговлей 8',
+				subcat: 'trade-warehouse',
+				badge: 'in_stock',
+			},
+			{
+				id: 6,
+				name: '1С:Розница 8',
+				subcat: 'trade-warehouse',
+				badge: 'in_stock',
+			},
+			{
+				id: 7,
+				name: '1С:Управление нашей фирмой 8',
+				subcat: 'management',
+				badge: 'in_stock',
+			},
+			{
+				id: 8,
+				name: '1С:Документооборот 8',
+				subcat: 'management',
+				badge: 'in_stock',
+			},
+			{
+				id: 9,
+				name: '1С:Предприятие 8. Управляющий',
+				subcat: 'management',
+				badge: 'in_stock',
+			},
+			{
+				id: 10,
+				name: '1С:Договорчики 8',
+				subcat: 'management',
+				badge: 'in_stock',
+			},
+			{
+				id: 11,
+				name: '1С:Предприятие 8. Управляющий. Базовая версия',
+				subcat: 'management',
+				badge: 'in_stock',
+			},
+			{
+				id: 12,
+				name: '1С:Предприятие 8. Управляющий. Стандарт',
+				subcat: 'management',
+				badge: 'in_stock',
+			},
+			{
+				id: 13,
+				name: '1С:ERP Управление предприятием 2',
+				subcat: 'complex',
+				badge: 'in_stock',
+			},
+			{
+				id: 14,
+				name: '1С:Комплексная автоматизация 8',
+				subcat: 'complex',
+				badge: 'in_stock',
+			},
+			{
+				id: 15,
+				name: '1С:Предприятие 8. Комплект прикладных решений на 5 пользователей',
+				subcat: 'complex',
+				badge: 'in_stock',
+			},
+			{
+				id: 16,
+				name: '1С:Корпорация',
+				subcat: 'complex',
+				badge: 'in_stock',
+			},
+			{
+				id: 17,
+				name: '1С:Управление холдингом 8',
+				subcat: 'complex',
+				badge: 'in_stock',
+			},
+			{
+				id: 18,
+				name: '1С:Предприятие 8. CRM',
+				subcat: 'complex',
+				badge: 'in_stock',
+			},
+		],
+	},
 	{
 		id: 'license',
 		label: 'Лицензии 1С',
@@ -19,103 +141,103 @@ const catalog: Category[] = [
 		],
 		products: [
 			{
-				id: 1,
+				id: 19,
 				name: '1С:Предприятие 8 ПРОФ. Клиентская лицензия на 1 рабочее место',
 				subcat: 'single',
 				badge: 'in_stock',
 			},
 			{
-				id: 2,
+				id: 20,
 				name: '1С:Предприятие 8 ПРОФ. Клиентская лицензия на 5 рабочих мест',
 				subcat: 'multi',
 				badge: 'in_stock',
 			},
 			{
-				id: 3,
+				id: 21,
 				name: '1С:Предприятие 8 ПРОФ. Клиентская лицензия на 10 рабочих мест',
 				subcat: 'multi',
 				badge: 'in_stock',
 			},
 			{
-				id: 4,
+				id: 22,
 				name: '1С:Предприятие 8 ПРОФ. Клиентская лицензия на 20 рабочих мест',
 				subcat: 'multi',
 				badge: 'in_stock',
 			},
 			{
-				id: 5,
+				id: 23,
 				name: '1С:Предприятие 8 ПРОФ. Клиентская лицензия на 50 рабочих мест',
 				subcat: 'multi',
 				badge: 'in_stock',
 			},
 			{
-				id: 6,
+				id: 24,
 				name: '1С:Предприятие 8 ПРОФ. Клиентская лицензия на 100 рабочих мест',
 				subcat: 'multi',
 				badge: 'in_stock',
 			},
 			{
-				id: 7,
+				id: 25,
 				name: '1С:Предприятие 8 ПРОФ. Клиентская лицензия на 300 рабочих мест 1',
 				subcat: 'multi',
 				badge: 'in_stock',
 			},
 			{
-				id: 8,
+				id: 26,
 				name: '1С:Предприятие 8 ПРОФ. Клиентская лицензия на 500 рабочих мест 2',
 				subcat: 'multi',
 				badge: 'in_stock',
 			},
 			{
-				id: 9,
+				id: 27,
 				name: '1С:Предприятие 8. Расширение для карманных компьютеров (включает лицензию на 5 КПК)',
 				subcat: 'multi',
 				badge: 'in_stock',
 			},
 			{
-				id: 10,
+				id: 28,
 				name: '1С:Предприятие 8 КОРП. Клиентская лицензия на 5 рабочих мест',
 				subcat: 'korp',
 				badge: 'in_stock',
 			},
 			{
-				id: 11,
+				id: 29,
 				name: '1С:Предприятие 8 КОРП. Клиентская лицензия на 10 рабочих мест',
 				subcat: 'korp',
 				badge: 'in_stock',
 			},
 			{
-				id: 12,
+				id: 30,
 				name: '1С:Предприятие 8 КОРП. Клиентская лицензия на 20 рабочих мест',
 				subcat: 'korp',
 				badge: 'in_stock',
 			},
 			{
-				id: 13,
+				id: 31,
 				name: '1С:Предприятие 8 КОРП. Клиентская лицензия на 50 рабочих мест',
 				subcat: 'korp',
 				badge: 'in_stock',
 			},
 			{
-				id: 14,
+				id: 32,
 				name: '1С:Предприятие 8 КОРП. Клиентская лицензия на 100 рабочих мест',
 				subcat: 'korp',
 				badge: 'in_stock',
 			},
 			{
-				id: 15,
+				id: 33,
 				name: '1С:Предприятие 8 КОРП. Клиентская лицензия на 300 рабочих мест 1',
 				subcat: 'korp',
 				badge: 'in_stock',
 			},
 			{
-				id: 16,
+				id: 34,
 				name: '1С:Предприятие 8 КОРП. Клиентская лицензия на 500 рабочих мест 2',
 				subcat: 'korp',
 				badge: 'in_stock',
 			},
 			{
-				id: 17,
+				id: 35,
 				name: '1С:Предприятие 8. Расширение для карманных компьютеров (включает лицензию на 5 КПК)',
 				subcat: 'korp',
 				badge: 'in_stock',
@@ -139,60 +261,60 @@ const catalog: Category[] = [
 			{ id: 'internet', label: 'Для работы через Интернет' },
 		],
 		products: [
-			{ id: 18, name: '1С:ЭДО', subcat: 'docs', badge: 'in_stock' },
-			{ id: 19, name: '1С:Подпись', subcat: 'docs', badge: 'in_stock' },
+			{ id: 36, name: '1С:ЭДО', subcat: 'docs', badge: 'in_stock' },
+			{ id: 37, name: '1С:Подпись', subcat: 'docs', badge: 'in_stock' },
 			{
-				id: 20,
+				id: 38,
 				name: '1С:Отчетность',
 				subcat: 'docs',
 				badge: 'in_stock',
 			},
 			{
-				id: 21,
+				id: 39,
 				name: '1С:ДиректБанк',
 				subcat: 'docs',
 				badge: 'in_stock',
 			},
-			{ id: 22, name: '1С:ОФД', subcat: 'docs', badge: 'in_stock' },
+			{ id: 40, name: '1С:ОФД', subcat: 'docs', badge: 'in_stock' },
 			{
-				id: 23,
+				id: 41,
 				name: '1С:Кабинет сотрудника',
 				subcat: 'docs',
 				badge: 'in_stock',
 			},
 			{
-				id: 24,
+				id: 42,
 				name: '1С:Распознование документов',
 				subcat: 'docs',
 				badge: 'in_stock',
 			},
 			{
-				id: 25,
+				id: 43,
 				name: '1С:Контрагент',
 				subcat: 'сounteragent',
 				badge: 'in_stock',
 			},
 			{
-				id: 26,
+				id: 44,
 				name: '1С:ПАРК Риски',
 				subcat: 'сounteragent',
 				badge: 'in_stock',
 			},
 			{
-				id: 27,
+				id: 45,
 				name: '1С:КП (ИТС)',
 				subcat: 'questions',
 				badge: 'in_stock',
 			},
 			{
-				id: 28,
+				id: 46,
 				name: '1С:Коннект',
 				subcat: 'questions',
 				badge: 'in_stock',
 			},
-			{ id: 29, name: '1С:ФРЕШ', subcat: 'internet', badge: 'in_stock' },
+			{ id: 47, name: '1С:ФРЕШ', subcat: 'internet', badge: 'in_stock' },
 			{
-				id: 30,
+				id: 48,
 				name: 'Аренда 1С',
 				subcat: 'internet',
 				badge: 'in_stock',
@@ -205,20 +327,16 @@ const catalog: Category[] = [
 		subcats: [{ id: 'all', label: 'Все' }],
 		products: [
 			{
-				id: 31,
+				id: 49,
 				name: '1С-Битрикс. Управление сайтом',
 				badge: 'in_stock',
 			},
 			{
-				id: 32,
+				id: 50,
 				name: '1С-Битрикс24. Корпоративный портал',
 				badge: 'in_stock',
 			},
-			{
-				id: 33,
-				name: 'Облачный сервис Битрикс24',
-				badge: 'in_stock',
-			},
+			{ id: 51, name: 'Облачный сервис Битрикс24', badge: 'in_stock' },
 		],
 	},
 ]
@@ -247,7 +365,7 @@ export default function Products1CPage() {
 			<div className='pt-17 bg-navy border-b border-white/7'>
 				<div className='max-w-300 mx-auto px-8 md:px-12 py-10'>
 					<Link
-						href='/'
+						href={ROUTE_HOME}
 						className='inline-flex items-center gap-2 text-[#8B9EB7] text-sm hover:text-brand-blue-light transition-colors no-underline mb-5'
 					>
 						<svg

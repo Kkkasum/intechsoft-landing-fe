@@ -44,9 +44,7 @@ const products = [
 				strokeLinejoin='round'
 				className='w-6 h-6'
 			>
-				<path d='M12 2L2 7l10 5 10-5-10-5z' />
-				<path d='M2 17l10 5 10-5' />
-				<path d='M2 12l10 5 10-5' />
+				<path d='M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z' />
 			</svg>
 		),
 		title: '1С-Продукты',
@@ -66,7 +64,9 @@ const products = [
 				strokeLinejoin='round'
 				className='w-6 h-6'
 			>
-				<path d='M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z' />
+				<path d='M12 2L2 7l10 5 10-5-10-5z' />
+				<path d='M2 17l10 5 10-5' />
+				<path d='M2 12l10 5 10-5' />
 			</svg>
 		),
 		title: 'Отраслевые решения 1С',

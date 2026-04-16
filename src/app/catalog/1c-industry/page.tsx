@@ -1,8 +1,10 @@
 'use client'
 
-import Row from '@/src/components/catalog/Row'
+import { CATEGORY_ICONS } from '@/src/components/catalog/icons'
+import IndustryRow from '@/src/components/catalog/IndustryRow'
 import Footer from '@/src/components/Footer'
 import Navbar from '@/src/components/Navbar'
+import { ROUTE_HOME } from '@/src/routes'
 import { Category } from '@/src/types/catalog.type'
 import Link from 'next/link'
 import { useState } from 'react'
@@ -408,6 +410,8 @@ export default function Industry1CPage() {
 		setActiveSubcat('all')
 	}
 
+	const categoryIcon = CATEGORY_ICONS[activeCat]
+
 	return (
 		<main>
 			<Navbar />
@@ -416,7 +420,7 @@ export default function Industry1CPage() {
 			<div className='pt-17 bg-navy border-b border-white/7'>
 				<div className='max-w-300 mx-auto px-8 md:px-12 py-10'>
 					<Link
-						href='/'
+						href={ROUTE_HOME}
 						className='inline-flex items-center gap-2 text-[#8B9EB7] text-sm hover:text-brand-blue-light transition-colors no-underline mb-5'
 					>
 						<svg
@@ -506,7 +510,11 @@ export default function Industry1CPage() {
 							{/* Products list */}
 							<div className='flex flex-col gap-3'>
 								{products.map(p => (
-									<Row key={p.id} product={p} />
+									<IndustryRow
+										key={p.id}
+										product={p}
+										icon={categoryIcon}
+									/>
 								))}
 
 								{products.length === 0 && (

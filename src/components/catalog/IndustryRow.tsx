@@ -1,16 +1,17 @@
-import OneCIcon from '@/src/components/ui/icons/1СIcon'
-import { Product } from '@/src/types/catalog.type'
+import type { Product } from '@/src/types/catalog.type'
+import type { ReactNode } from 'react'
 
-interface IProps {
+type Props = {
 	product: Product
+	icon?: ReactNode
 }
 
-export default function Row({ product }: IProps) {
+export default function IndustryRow({ product, icon }: Props) {
 	return (
 		<div className='flex items-center gap-6 bg-white/4 border border-white/7 rounded-2xl px-6 py-5 hover:bg-white/7 hover:border-brand-blue/35 transition-all duration-200 group'>
-			{/* Image placeholder */}
-			<div className='w-20 h-20 shrink-0 rounded-xl bg-white/4 border border-white/7 flex items-center justify-center'>
-				<OneCIcon width='36' height='24' />
+			{/* Icon block */}
+			<div className='w-14 h-14 shrink-0 rounded-xl bg-brand-blue/10 border border-brand-blue/35 flex items-center justify-center text-brand-blue-light'>
+				{icon ?? <DefaultIcon />}
 			</div>
 
 			{/* Info */}
@@ -19,8 +20,7 @@ export default function Row({ product }: IProps) {
 					{product.name}
 				</h3>
 
-				<div className='flex items-center gap-4 flex-wrap'>
-					{/* Badge */}
+				<div className='flex items-center gap-3 flex-wrap'>
 					{product.badge === 'in_stock' && (
 						<span className='text-[11px] font-semibold px-2.5 py-1 rounded-lg bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 uppercase tracking-wide'>
 							В наличии
@@ -33,22 +33,25 @@ export default function Row({ product }: IProps) {
 					)}
 				</div>
 			</div>
-
-			{/* Arrow */}
-			{/* <div className='shrink-0 w-9 h-9 rounded-xl flex items-center justify-center border border-white/7 text-[#4D6280] group-hover:border-brand-blue/35 group-hover:text-brand-blue-light transition-all duration-150'>
-				<svg
-					width='14'
-					height='14'
-					viewBox='0 0 16 16'
-					fill='none'
-					stroke='currentColor'
-					strokeWidth={1.8}
-					strokeLinecap='round'
-					strokeLinejoin='round'
-				>
-					<path d='M6 3l5 5-5 5' />
-				</svg>
-			</div> */}
 		</div>
+	)
+}
+
+/* ─── Default fallback icon ──────────────────────────────── */
+
+function DefaultIcon() {
+	return (
+		<svg
+			className='w-6 h-6'
+			viewBox='0 0 24 24'
+			fill='none'
+			stroke='currentColor'
+			strokeWidth={1.6}
+			strokeLinecap='round'
+			strokeLinejoin='round'
+		>
+			<rect x='2' y='3' width='20' height='14' rx='2' />
+			<path d='M8 21h8M12 17v4' />
+		</svg>
 	)
 }

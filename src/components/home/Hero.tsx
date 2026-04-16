@@ -1,11 +1,21 @@
 'use client'
 
+import OneCIcon from '@/src/components/ui/icons/1СIcon'
+import { ROUTE_STUDY } from '@/src/routes'
 import Link from 'next/link'
 import { useState } from 'react'
+import ArrowIcon from '../ui/icons/ArrowIcon'
 
 const slides = [
 	{
-		number: '25+',
+		title: 'Курсы',
+		label: 'профессиональной подготовки по 1С',
+		desc: 'Стать экспертом в работе с 1С — повысить свою конкурентоспособность и овладеть востребованными навыками',
+		icon: <OneCIcon width='156' height='100' color='#fff' />,
+		to: ROUTE_STUDY,
+	},
+	{
+		title: '25+',
 		label: 'лет опыта на рынке ИТ',
 		desc: 'Компания основана в 1996 году и за это время реализовала тысячи проектов по всему Дагестану.',
 		icon: (
@@ -22,9 +32,10 @@ const slides = [
 				<polyline points='12 6 12 12 16 14' />
 			</svg>
 		),
+		to: ROUTE_STUDY,
 	},
 	{
-		number: '14 000+',
+		title: '14 000+',
 		label: 'успешных проектов по автоматизации',
 		desc: 'Каждый проект — индивидуальный подход. От небольшого магазина до сети ресторанов.',
 		icon: (
@@ -40,9 +51,10 @@ const slides = [
 				<polyline points='22 12 18 12 15 21 9 3 6 12 2 12' />
 			</svg>
 		),
+		to: ROUTE_STUDY,
 	},
 	{
-		number: '15 мин',
+		title: '15 мин',
 		label: 'среднее время решения задачи',
 		desc: 'Сервисное обслуживание работает как конвейер — точно, быстро и везде одинаково.',
 		icon: (
@@ -58,9 +70,10 @@ const slides = [
 				<path d='M13 2L3 14h9l-1 8 10-12h-9l1-8z' />
 			</svg>
 		),
+		to: ROUTE_STUDY,
 	},
 	{
-		number: '1,8 млн ₽',
+		title: '1,8 млн ₽',
 		label: 'в год экономят наши клиенты',
 		desc: 'Грамотно внедрённые ИТ-решения сокращают ручной труд и исключают дорогостоящие ошибки учёта.',
 		icon: (
@@ -77,6 +90,7 @@ const slides = [
 				<path d='M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6' />
 			</svg>
 		),
+		to: ROUTE_STUDY,
 	},
 ]
 
@@ -107,7 +121,7 @@ export default function Hero() {
 					<div>
 						<div className='inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-blue/10 border border-brand-blue/35 text-brand-blue-light text-[13px] font-medium mb-7'>
 							<span className='w-1.5 h-1.5 rounded-full bg-brand-blue-light animate-pulse' />
-							Официальный представитель 1С в Махачкале
+							Официальный представитель 1С
 						</div>
 
 						<h1 className='font-display text-[clamp(36px,4vw,58px)] font-bold leading-[1.12] tracking-tight mb-6'>
@@ -120,10 +134,12 @@ export default function Hero() {
 						</h1>
 
 						<p className='text-[18px] text-[#8B9EB7] leading-relaxed max-w-130 mb-10'>
-							Подберём и поставим торговое оборудование,
-							онлайн-кассы и программные продукты от ведущих
-							разработчиков. Бесплатная консультация — в любое
-							время.
+							С Нами вам доступен полноценный комплекс IT-услуг:
+							от бесплатной консультации до установки, настройки,
+							обучения и постоянного сопровождения.
+							<br />
+							Работаем так, чтобы вам не пришлось ни о чём
+							беспокоиться.
 						</p>
 
 						<div className='flex flex-wrap gap-4'>
@@ -145,7 +161,10 @@ export default function Hero() {
 					{/* Slider */}
 					<div className='flex flex-col gap-4'>
 						{/* Slide card */}
-						<div className='relative bg-white/4 border border-white/13 rounded-2xl p-8 backdrop-blur-md overflow-hidden h-100 flex flex-col justify-between'>
+						<Link
+							href={slide.to}
+							className='relative bg-white/4 border border-white/13 rounded-2xl p-8 backdrop-blur-md overflow-hidden h-100 flex flex-col justify-between cursor-pointer hover:border-brand-blue-light transition-colors duration-200'
+						>
 							{/* Subtle glow behind number */}
 							<div
 								className='absolute -top-8 -right-8 w-40 h-40 rounded-full pointer-events-none'
@@ -157,13 +176,13 @@ export default function Hero() {
 
 							<div>
 								{/* Icon */}
-								<div className='w-12 h-12 rounded-xl bg-brand-blue/10 border border-brand-blue/35 flex items-center justify-center text-brand-blue-light mb-6'>
+								<div className='w-36 h-36 rounded-xl bg-brand-blue/10 border border-white/13 flex items-center justify-center text-brand-blue-light mb-6 p-5'>
 									{slide.icon}
 								</div>
 
-								{/* Number */}
+								{/* Title */}
 								<div className='font-display text-[52px] font-bold text-brand-blue-light leading-none mb-2'>
-									{slide.number}
+									{slide.title}
 								</div>
 
 								{/* Label */}
@@ -175,8 +194,10 @@ export default function Hero() {
 								<p className='text-[14px] text-[#8B9EB7] leading-relaxed'>
 									{slide.desc}
 								</p>
+
+								<ArrowIcon />
 							</div>
-						</div>
+						</Link>
 
 						{/* Controls */}
 						<div className='flex items-center justify-between'>
