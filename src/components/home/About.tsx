@@ -1,24 +1,23 @@
-import LogoImage from '@/src/assets/logo.png'
+'use client'
+
+import AstralLogo from '@/src/assets/astral.png'
+import AtolLogo from '@/src/assets/atol.png'
+import BitrixLogo from '@/src/assets/bitrix.png'
+import EvotorLogo from '@/src/assets/evotor.png'
+import MobiSLogo from '@/src/assets/mobis.png'
+import OFDLogo from '@/src/assets/ofd.png'
+import OneCLogo from '@/src/assets/onec.png'
+import OneCBitrixLogo from '@/src/assets/onecbitrix.png'
+import RarusLogo from '@/src/assets/rarus.png'
+import RKeeperLogo from '@/src/assets/rkeeper.png'
+import SoftBalanceLogo from '@/src/assets/softbalance.png'
+import TaxComLogo from '@/src/assets/taxcom.png'
+import LeftArrow from '@/src/components/ui/icons/LeftArrow'
+import RightArrow from '@/src/components/ui/icons/RightArrow'
 import Image from 'next/image'
+import { useState } from 'react'
 
 const features = [
-	{
-		icon: (
-			<svg
-				viewBox='0 0 24 24'
-				fill='none'
-				stroke='currentColor'
-				strokeWidth={1.8}
-				strokeLinecap='round'
-				strokeLinejoin='round'
-				className='w-5 h-5'
-			>
-				<path d='M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8a19.79 19.79 0 01-3.07-8.68A2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91A16 16 0 0016 16l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0124 17z' />
-			</svg>
-		),
-		title: 'Бесплатная консультация',
-		text: 'Задайте любой вопрос — наши специалисты подберут оптимальное решение для вашего бизнеса.',
-	},
 	{
 		icon: (
 			<svg
@@ -36,7 +35,25 @@ const features = [
 			</svg>
 		),
 		title: 'Команда профессионалов',
-		text: 'Сертифицированные специалисты с многолетним опытом реализации проектов любой сложности.',
+		text: 'Наши специалисты — это многопрофильная команда, которая решает любые задачи в единой точке контакта, экономя ваше время и ресурсы. ',
+	},
+	{
+		icon: (
+			<svg
+				viewBox='0 0 24 24'
+				fill='none'
+				stroke='currentColor'
+				strokeWidth={1.8}
+				strokeLinecap='round'
+				strokeLinejoin='round'
+				className='w-5 h-5'
+			>
+				<rect x='2' y='3' width='20' height='14' rx='2' />
+				<path d='M8 21h8M12 17v4' />
+			</svg>
+		),
+		title: 'Широкий продуктовый портфель',
+		text: 'Мы предлагаем ассортимент, включающий программные продукты и аппаратные решения от ведущих вендоров.',
 	},
 ]
 
@@ -44,10 +61,116 @@ const metrics = [
 	{ label: 'Опыт работы', value: '25 лет' },
 	{ label: 'Проектов автоматизировано', value: '>14 000' },
 	{ label: 'Ср. время решения задач', value: '~15 мин' },
-	{ label: 'Экономия клиентам в год', value: '~1,8 млн ₽' },
+]
+
+const slides = [
+	[
+		{ icon: <Image src={OneCLogo} alt='1С' width={200} height={120} /> },
+		{
+			icon: (
+				<Image
+					src={OneCBitrixLogo}
+					alt='1С-Битрикс'
+					width={200}
+					height={120}
+				/>
+			),
+		},
+	],
+	[
+		{
+			icon: (
+				<Image
+					src={BitrixLogo}
+					alt='Битрикс24'
+					width={200}
+					height={120}
+				/>
+			),
+		},
+		{ icon: <Image src={AtolLogo} alt='АТОЛ' width={200} height={120} /> },
+	],
+	[
+		{
+			icon: (
+				<Image
+					src={RarusLogo}
+					alt='1С-Рарус'
+					width={200}
+					height={120}
+				/>
+			),
+		},
+		{
+			icon: (
+				<Image src={EvotorLogo} alt='ЭВОТОР' width={200} height={120} />
+			),
+		},
+	],
+	[
+		{
+			icon: (
+				<Image
+					src={AstralLogo}
+					alt='Калуга Астрал'
+					width={200}
+					height={120}
+				/>
+			),
+		},
+		{
+			icon: (
+				<Image
+					src={SoftBalanceLogo}
+					alt='СофтБаланс'
+					width={200}
+					height={120}
+				/>
+			),
+		},
+	],
+	[
+		{
+			icon: (
+				<Image
+					src={RKeeperLogo}
+					alt='R_Keeper'
+					width={200}
+					height={120}
+				/>
+			),
+		},
+		{
+			icon: (
+				<Image src={MobiSLogo} alt='Моби-С' width={200} height={120} />
+			),
+		},
+	],
+	[
+		{
+			icon: (
+				<Image
+					src={OFDLogo}
+					alt='Платформа ОФД'
+					width={200}
+					height={120}
+				/>
+			),
+		},
+		{
+			icon: (
+				<Image src={TaxComLogo} alt='TAXCOM' width={200} height={120} />
+			),
+		},
+	],
 ]
 
 export default function About() {
+	const [active, setActive] = useState(0)
+
+	const prev = () => setActive(i => (i === 0 ? slides.length - 1 : i - 1))
+	const next = () => setActive(i => (i === slides.length - 1 ? 0 : i + 1))
+
 	return (
 		<section id='about' className='py-24 bg-navy-2'>
 			<div className='max-w-300 mx-auto px-8 md:px-12'>
@@ -58,12 +181,17 @@ export default function About() {
 							Почему мы
 						</p>
 						<h2 className='font-display text-[clamp(26px,3vw,40px)] font-bold leading-tight tracking-tight mb-5'>
-							Работаем как конвейер — точно, быстро, везде
-							одинаково
+							Комплексная поддержка: единая точка контакта для
+							всех ИТ-решений
 						</h2>
 						<p className='text-base text-[#8B9EB7] leading-relaxed mb-12'>
-							Основаны в 1996 году. Полный спектр услуг по
-							автоматизации бизнес-процессов, учёту и управлению.
+							Основанная в 1996 году компания «ИнтехСофт»
+							зарекомендовала себя как надёжный партнёр в сфере
+							автоматизации бизнеса
+							<br />
+							Сегодня мы — динамично развивающаяся компания с
+							собственным Учебным центром и развитой
+							инфраструктурой
 						</p>
 
 						<div className='flex flex-col gap-9'>
@@ -86,20 +214,8 @@ export default function About() {
 					</div>
 
 					{/* Right: metrics */}
-					<div className='flex flex-col items-center'>
-						<div className='w-48 h-48'>
-							<div className='rounded-lg flex items-center justify-center shrink-0'>
-								<Image
-									src={LogoImage}
-									alt=''
-									width={500}
-									height={500}
-									className='rounded-lg'
-								/>
-							</div>
-						</div>
-
-						<div className='bg-white/4 border border-white/13 rounded-2xl p-8'>
+					<div className='flex flex-col items-center gap-5 mt-10'>
+						<div className='bg-white/4 border border-white/13 rounded-2xl p-8 w-full'>
 							<h3 className='font-display text-[22px] font-bold leading-snug mb-8'>
 								Результаты,
 								<br />
@@ -123,6 +239,63 @@ export default function About() {
 										</span>
 									</div>
 								))}
+							</div>
+						</div>
+
+						<div className='flex flex-col items-center gap-4 w-full'>
+							{/* Slide card */}
+							<div className='relative bg-white/4 border border-white/13 rounded-2xl p-8 backdrop-blur-md overflow-hidden w-full'>
+								<h3 className='font-display text-[22px] font-bold leading-snug mb-8'>
+									Вендоры
+								</h3>
+
+								<div className='flex gap-4'>
+									{slides[active].map((item, i) => (
+										<div
+											key={i}
+											className='w-1/2 h-28 rounded-xl bg-white border border-white/13 flex items-center justify-center text-brand-blue-light p-5'
+										>
+											{item.icon}
+										</div>
+									))}
+								</div>
+							</div>
+
+							{/* Controls */}
+							<div className='flex items-center justify-between w-full'>
+								{/* Dots */}
+								<div className='flex items-center gap-2'>
+									{slides.map((_, i) => (
+										<button
+											key={i}
+											onClick={() => setActive(i)}
+											aria-label={`Слайд ${i + 1}`}
+											className={`rounded-full transition-all duration-300 ${
+												i === active
+													? 'w-6 h-2 bg-brand-blue-light'
+													: 'w-2 h-2 bg-white/20 hover:bg-white/40'
+											}`}
+										/>
+									))}
+								</div>
+
+								{/* Prev / Next */}
+								<div className='flex items-center gap-2'>
+									<button
+										onClick={prev}
+										aria-label='Предыдущий слайд'
+										className='w-10 h-10 rounded-xl flex items-center justify-center border border-white/13 text-[#8B9EB7] hover:border-brand-blue/35 hover:text-brand-blue-light hover:bg-brand-blue/10 transition-all duration-200'
+									>
+										<LeftArrow />
+									</button>
+									<button
+										onClick={next}
+										aria-label='Следующий слайд'
+										className='w-10 h-10 rounded-xl flex items-center justify-center border border-white/13 text-[#8B9EB7] hover:border-brand-blue/35 hover:text-brand-blue-light hover:bg-brand-blue/10 transition-all duration-200'
+									>
+										<RightArrow />
+									</button>
+								</div>
 							</div>
 						</div>
 					</div>

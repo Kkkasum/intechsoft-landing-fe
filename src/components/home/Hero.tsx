@@ -1,10 +1,12 @@
 'use client'
 
 import OneCIcon from '@/src/components/ui/icons/1CIcon'
+import ArrowIcon from '@/src/components/ui/icons/ArrowIcon'
+import LeftArrow from '@/src/components/ui/icons/LeftArrow'
+import RightArrow from '@/src/components/ui/icons/RightArrow'
 import { ROUTE_STUDY } from '@/src/routes'
 import Link from 'next/link'
 import { useState } from 'react'
-import ArrowIcon from '../ui/icons/ArrowIcon'
 
 const slides = [
 	{
@@ -224,36 +226,14 @@ export default function Hero() {
 									aria-label='Предыдущий слайд'
 									className='w-10 h-10 rounded-xl flex items-center justify-center border border-white/13 text-[#8B9EB7] hover:border-brand-blue/35 hover:text-brand-blue-light hover:bg-brand-blue/10 transition-all duration-200'
 								>
-									<svg
-										width='16'
-										height='16'
-										viewBox='0 0 16 16'
-										fill='none'
-										stroke='currentColor'
-										strokeWidth={1.8}
-										strokeLinecap='round'
-										strokeLinejoin='round'
-									>
-										<path d='M10 3L5 8l5 5' />
-									</svg>
+									<LeftArrow />
 								</button>
 								<button
 									onClick={next}
 									aria-label='Следующий слайд'
 									className='w-10 h-10 rounded-xl flex items-center justify-center border border-white/13 text-[#8B9EB7] hover:border-brand-blue/35 hover:text-brand-blue-light hover:bg-brand-blue/10 transition-all duration-200'
 								>
-									<svg
-										width='16'
-										height='16'
-										viewBox='0 0 16 16'
-										fill='none'
-										stroke='currentColor'
-										strokeWidth={1.8}
-										strokeLinecap='round'
-										strokeLinejoin='round'
-									>
-										<path d='M6 3l5 5-5 5' />
-									</svg>
+									<RightArrow />
 								</button>
 							</div>
 						</div>
