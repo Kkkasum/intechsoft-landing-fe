@@ -6,6 +6,6 @@ export const ROUTE_CATALOG_1C_INDUSTRY = '/catalog/1c-industry'
 
 export const ROUTE_ITS = '/its'
 
-export const ROUTE_AUTOMATION = '/automation'
+export const ROUTE_STORE = '/store'
 
 export const ROUTE_STUDY = '/study'

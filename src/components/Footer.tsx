@@ -1,11 +1,11 @@
 import LogoImage from '@/src/assets/logo.png'
 import {
-	ROUTE_AUTOMATION,
 	ROUTE_CATALOG_1C_INDUSTRY,
 	ROUTE_CATALOG_1C_PRODUCTS,
 	ROUTE_CATALOG_EQUIPMENT,
 	ROUTE_HOME,
 	ROUTE_ITS,
+	ROUTE_STORE,
 	ROUTE_STUDY,
 } from '@/src/routes'
 import Image from 'next/image'
@@ -19,7 +19,7 @@ const productLinks = [
 
 const serviceLinks = [
 	{ label: 'Сопровождение 1С (ИТС)', href: ROUTE_ITS },
-	{ label: 'Автоматизация магазина', href: ROUTE_AUTOMATION },
+	{ label: 'Автоматизация магазина (Розница)', href: ROUTE_STORE },
 	{ label: 'Курсы профессиональной подготовки по 1С', href: ROUTE_STUDY },
 ]
 

@@ -1,5 +1,5 @@
 import ArrowIcon from '@/src/components/ui/icons/ArrowIcon'
-import { ROUTE_AUTOMATION, ROUTE_ITS, ROUTE_STUDY } from '@/src/routes'
+import { ROUTE_ITS, ROUTE_STORE, ROUTE_STUDY } from '@/src/routes'
 import Link from 'next/link'
 
 const services = [
@@ -31,9 +31,9 @@ const services = [
 	},
 	{
 		num: '06',
-		name: 'Автоматизация магазина',
+		name: 'Автоматизация магазина (Розница)',
 		desc: 'Интеграция с 1С, торговая техника, обучение персонала, сопровождение.',
-		to: ROUTE_AUTOMATION,
+		to: ROUTE_STORE,
 	},
 	{
 		num: '07',

@@ -2,10 +2,11 @@
 
 import OneCIcon from '@/src/components/ui/icons/1CIcon'
 import ArrowIcon from '@/src/components/ui/icons/ArrowIcon'
-import LeftArrow from '@/src/components/ui/icons/LeftArrow'
-import RightArrow from '@/src/components/ui/icons/RightArrow'
+import LeftArrowIcon from '@/src/components/ui/icons/LeftArrowIcon'
+import RightArrowIcon from '@/src/components/ui/icons/RightArrowIcon'
+import StoreIcon from '@/src/components/ui/icons/StoreIcon'
 import StudyIcon from '@/src/components/ui/icons/StudyIcon'
-import { ROUTE_ITS, ROUTE_STUDY } from '@/src/routes'
+import { ROUTE_ITS, ROUTE_STORE, ROUTE_STUDY } from '@/src/routes'
 import Link from 'next/link'
 import { useState } from 'react'
 
@@ -16,6 +17,13 @@ const slides = [
 		desc: 'Ваш ключ к актуальным обновлениям, круглосуточной поддержке и экономии ресурсов',
 		icon: <OneCIcon width='156' height='100' color='#fff' />,
 		to: ROUTE_ITS,
+	},
+	{
+		title: 'Розница',
+		label: 'Автоматизация магазина',
+		desc: 'Система, которая упрощает работу и помогает зарабатывать больше',
+		icon: <StoreIcon width='100' height='100' color='#fff' />,
+		to: ROUTE_STORE,
 	},
 	{
 		title: 'Курсы',
@@ -108,12 +116,12 @@ export default function Hero() {
 
 							<div>
 								{/* Icon */}
-								<div className='w-36 h-36 rounded-xl bg-brand-blue/10 border border-white/13 flex items-center justify-center text-brand-blue-light mb-6 p-5'>
+								<div className='w-40 h-36 rounded-xl bg-brand-blue/10 border border-white/13 flex items-center justify-center text-brand-blue-light mb-6 p-5'>
 									{slide.icon}
 								</div>
 
 								{/* Title */}
-								<div className='font-display text-[52px] font-bold text-brand-blue-light leading-none mb-2'>
+								<div className='font-display text-[48px] font-bold text-brand-blue-light leading-none mb-2'>
 									{slide.title}
 								</div>
 
@@ -142,7 +150,7 @@ export default function Hero() {
 										key={i}
 										onClick={() => setActive(i)}
 										aria-label={`Слайд ${i + 1}`}
-										className={`rounded-full transition-all duration-300 ${
+										className={`rounded-full transition-all duration-300 cursor-pointer ${
 											i === active
 												? 'w-6 h-2 bg-brand-blue-light'
 												: 'w-2 h-2 bg-white/20 hover:bg-white/40'
@@ -156,16 +164,16 @@ export default function Hero() {
 								<button
 									onClick={prev}
 									aria-label='Предыдущий слайд'
-									className='w-10 h-10 rounded-xl flex items-center justify-center border border-white/13 text-[#8B9EB7] hover:border-brand-blue/35 hover:text-brand-blue-light hover:bg-brand-blue/10 transition-all duration-200'
+									className='w-10 h-10 rounded-xl flex items-center justify-center border border-white/13 text-[#8B9EB7] hover:border-brand-blue/35 hover:text-brand-blue-light hover:bg-brand-blue/10 transition-all duration-200 cursor-pointer'
 								>
-									<LeftArrow />
+									<LeftArrowIcon />
 								</button>
 								<button
 									onClick={next}
 									aria-label='Следующий слайд'
-									className='w-10 h-10 rounded-xl flex items-center justify-center border border-white/13 text-[#8B9EB7] hover:border-brand-blue/35 hover:text-brand-blue-light hover:bg-brand-blue/10 transition-all duration-200'
+									className='w-10 h-10 rounded-xl flex items-center justify-center border border-white/13 text-[#8B9EB7] hover:border-brand-blue/35 hover:text-brand-blue-light hover:bg-brand-blue/10 transition-all duration-200 cursor-pointer'
 								>
-									<RightArrow />
+									<RightArrowIcon />
 								</button>
 							</div>
 						</div>

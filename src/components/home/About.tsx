@@ -12,8 +12,8 @@ import RarusLogo from '@/src/assets/rarus.png'
 import RKeeperLogo from '@/src/assets/rkeeper.png'
 import SoftBalanceLogo from '@/src/assets/softbalance.png'
 import TaxComLogo from '@/src/assets/taxcom.png'
-import LeftArrow from '@/src/components/ui/icons/LeftArrow'
-import RightArrow from '@/src/components/ui/icons/RightArrow'
+import LeftArrowIcon from '@/src/components/ui/icons/LeftArrowIcon'
+import RightArrowIcon from '@/src/components/ui/icons/RightArrowIcon'
 import Image from 'next/image'
 import { useState } from 'react'
 
@@ -286,14 +286,14 @@ export default function About() {
 										aria-label='Предыдущий слайд'
 										className='w-10 h-10 rounded-xl flex items-center justify-center border border-white/13 text-[#8B9EB7] hover:border-brand-blue/35 hover:text-brand-blue-light hover:bg-brand-blue/10 transition-all duration-200'
 									>
-										<LeftArrow />
+										<LeftArrowIcon />
 									</button>
 									<button
 										onClick={next}
 										aria-label='Следующий слайд'
 										className='w-10 h-10 rounded-xl flex items-center justify-center border border-white/13 text-[#8B9EB7] hover:border-brand-blue/35 hover:text-brand-blue-light hover:bg-brand-blue/10 transition-all duration-200'
 									>
-										<RightArrow />
+										<RightArrowIcon />
 									</button>
 								</div>
 							</div>

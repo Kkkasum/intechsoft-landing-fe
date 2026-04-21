@@ -3,7 +3,7 @@ import Link from 'next/link'
 
 export default function Hero() {
 	return (
-		<section className='relative pt-17 overflow-hidden bg-navy'>
+		<section className='relative pt-17 overflow-hidden bg-navy h-screen'>
 			<div
 				className='absolute inset-0 pointer-events-none'
 				style={{
@@ -34,34 +34,54 @@ export default function Hero() {
 				</Link>
 
 				<p className='text-xs font-semibold tracking-[0.12em] uppercase text-brand-blue-light mb-4'>
-					Информационно-технологическое сопровождение
+					Розница
 				</p>
-				<h1 className='font-display text-[clamp(28px,4vw,56px)] font-bold leading-[1.1] tracking-tight mb-6 max-w-200'>
-					1С: ИТС — ваш ключ к актуальным обновлениям,{' '}
-					<span className='text-brand-blue-light'>
-						круглосуточной поддержке
-					</span>{' '}
-					и экономии ресурсов
+				<h1 className='font-display text-[clamp(36px,4.5vw,62px)] font-bold leading-[1.1] tracking-tight mb-6 max-w-175'>
+					Автоматизация
+					<br />
+					магазина
 				</h1>
 				<p className='text-[18px] text-[#8B9EB7] leading-relaxed max-w-140 mb-10'>
-					Договор 1С: КП (ИТС) — это непрерывная работа вашей системы,
-					своевременные обновления и профессиональная помощь в любой
-					ситуации.
+					Превратим ваш магазин в систему, которая сама считает,
+					анализирует и помогает зарабатывать больше. Без хаоса в
+					учёте, потерь на складе и «ручного режима».
 				</p>
 
 				<div className='flex flex-wrap gap-4'>
 					<a
-						href='#cta'
+						href='mailto:info@intechsoft.ru'
 						className='inline-flex items-center px-8 py-3.5 rounded-xl bg-brand-blue text-white text-base font-semibold hover:bg-brand-blue-light hover:-translate-y-0.5 transition-all duration-200 no-underline'
 					>
-						Заключить договор
+						Обсудить проект
 					</a>
 					<a
-						href='#pricing'
+						href='#solutions'
 						className='inline-flex items-center px-8 py-3.5 rounded-xl bg-transparent text-[#EEF2FF] text-base font-semibold border border-white/13 hover:border-brand-blue/35 hover:text-brand-blue-light transition-all duration-200 no-underline'
 					>
-						Узнать стоимость
+						Смотреть решения
 					</a>
+				</div>
+
+				{/* Quick stats */}
+				<div className='grid grid-cols-2 md:grid-cols-4 gap-px mt-16 bg-white/7 border border-white/7 rounded-2xl overflow-hidden'>
+					{[
+						{ val: '25+', label: 'лет автоматизируем торговлю' },
+						{ val: '6', label: 'готовых решений для магазинов' },
+						{ val: '54-ФЗ', label: 'соответствие требованиям' },
+						{
+							val: '1 день',
+							label: 'запуск базовой автоматизации',
+						},
+					].map(s => (
+						<div key={s.label} className='px-6 py-5 bg-navy'>
+							<div className='font-display text-2xl font-bold text-brand-blue-light mb-1'>
+								{s.val}
+							</div>
+							<div className='text-[13px] text-[#8B9EB7] leading-snug'>
+								{s.label}
+							</div>
+						</div>
+					))}
 				</div>
 			</div>
 		</section>
