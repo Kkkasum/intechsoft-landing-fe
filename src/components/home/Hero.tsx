@@ -4,94 +4,24 @@ import OneCIcon from '@/src/components/ui/icons/1CIcon'
 import ArrowIcon from '@/src/components/ui/icons/ArrowIcon'
 import LeftArrow from '@/src/components/ui/icons/LeftArrow'
 import RightArrow from '@/src/components/ui/icons/RightArrow'
-import { ROUTE_STUDY } from '@/src/routes'
+import StudyIcon from '@/src/components/ui/icons/StudyIcon'
+import { ROUTE_ITS, ROUTE_STUDY } from '@/src/routes'
 import Link from 'next/link'
 import { useState } from 'react'
 
 const slides = [
 	{
+		title: 'ИТС',
+		label: 'Сопровождение 1С',
+		desc: 'Ваш ключ к актуальным обновлениям, круглосуточной поддержке и экономии ресурсов',
+		icon: <OneCIcon width='156' height='100' color='#fff' />,
+		to: ROUTE_ITS,
+	},
+	{
 		title: 'Курсы',
 		label: 'профессиональной подготовки по 1С',
 		desc: 'Стать экспертом в работе с 1С — повысить свою конкурентоспособность и овладеть востребованными навыками',
-		icon: <OneCIcon width='156' height='100' color='#fff' />,
-		to: ROUTE_STUDY,
-	},
-	{
-		title: '25+',
-		label: 'лет опыта на рынке ИТ',
-		desc: 'Компания основана в 1996 году и за это время реализовала тысячи проектов по всему Дагестану.',
-		icon: (
-			<svg
-				viewBox='0 0 24 24'
-				fill='none'
-				stroke='currentColor'
-				strokeWidth={1.6}
-				strokeLinecap='round'
-				strokeLinejoin='round'
-				className='w-7 h-7'
-			>
-				<circle cx='12' cy='12' r='10' />
-				<polyline points='12 6 12 12 16 14' />
-			</svg>
-		),
-		to: ROUTE_STUDY,
-	},
-	{
-		title: '14 000+',
-		label: 'успешных проектов по автоматизации',
-		desc: 'Каждый проект — индивидуальный подход. От небольшого магазина до сети ресторанов.',
-		icon: (
-			<svg
-				viewBox='0 0 24 24'
-				fill='none'
-				stroke='currentColor'
-				strokeWidth={1.6}
-				strokeLinecap='round'
-				strokeLinejoin='round'
-				className='w-7 h-7'
-			>
-				<polyline points='22 12 18 12 15 21 9 3 6 12 2 12' />
-			</svg>
-		),
-		to: ROUTE_STUDY,
-	},
-	{
-		title: '15 мин',
-		label: 'среднее время решения задачи',
-		desc: 'Сервисное обслуживание работает как конвейер — точно, быстро и везде одинаково.',
-		icon: (
-			<svg
-				viewBox='0 0 24 24'
-				fill='none'
-				stroke='currentColor'
-				strokeWidth={1.6}
-				strokeLinecap='round'
-				strokeLinejoin='round'
-				className='w-7 h-7'
-			>
-				<path d='M13 2L3 14h9l-1 8 10-12h-9l1-8z' />
-			</svg>
-		),
-		to: ROUTE_STUDY,
-	},
-	{
-		title: '1,8 млн ₽',
-		label: 'в год экономят наши клиенты',
-		desc: 'Грамотно внедрённые ИТ-решения сокращают ручной труд и исключают дорогостоящие ошибки учёта.',
-		icon: (
-			<svg
-				viewBox='0 0 24 24'
-				fill='none'
-				stroke='currentColor'
-				strokeWidth={1.6}
-				strokeLinecap='round'
-				strokeLinejoin='round'
-				className='w-7 h-7'
-			>
-				<line x1='12' y1='1' x2='12' y2='23' />
-				<path d='M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6' />
-			</svg>
-		),
+		icon: <StudyIcon width='100' height='100' color='#fff' />,
 		to: ROUTE_STUDY,
 	},
 ]
@@ -146,7 +76,7 @@ export default function Hero() {
 
 						<div className='flex flex-wrap gap-4'>
 							<Link
-								href='#contacts'
+								href='#cta'
 								className='inline-flex items-center px-8 py-3.5 rounded-xl bg-brand-blue text-white text-base font-semibold hover:bg-brand-blue-light hover:-translate-y-0.5 transition-all duration-200 no-underline'
 							>
 								Бесплатная консультация
@@ -197,7 +127,9 @@ export default function Hero() {
 									{slide.desc}
 								</p>
 
-								<ArrowIcon />
+								<div className='absolute bottom-5 right-5 text-[#4D6280]'>
+									<ArrowIcon />
+								</div>
 							</div>
 						</Link>
 

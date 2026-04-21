@@ -1,5 +1,6 @@
 'use client'
 
+import CTA from '@/src/components/catalog/CTA'
 import Row from '@/src/components/catalog/Row'
 import Footer from '@/src/components/Footer'
 import Navbar from '@/src/components/Navbar'
@@ -468,6 +469,8 @@ export default function Products1CPage() {
 					</div>
 				</div>
 			</div>
+
+			<CTA />
 
 			<Footer />
 		</main>

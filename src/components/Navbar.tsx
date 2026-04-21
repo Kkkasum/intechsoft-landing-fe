@@ -7,10 +7,10 @@ import Link from 'next/link'
 import { useState } from 'react'
 
 const navLinks = [
-	{ href: '#products', label: 'Продукты' },
-	{ href: '#services', label: 'Услуги' },
-	{ href: '#about', label: 'О компании' },
-	{ href: '#contacts', label: 'Контакты' },
+	{ href: '/#products', label: 'Продукты' },
+	{ href: '/#services', label: 'Услуги' },
+	{ href: '/#about', label: 'О компании' },
+	{ href: '/#cta', label: 'Контакты' },
 ]
 
 export default function Navbar() {
@@ -64,7 +64,7 @@ export default function Navbar() {
 					+7 (963) 420-82-32
 				</a>
 				<Link
-					href='#contacts'
+					href='/#cta'
 					className='px-5 py-2 rounded-lg bg-brand-blue text-white text-sm font-semibold hover:bg-brand-blue-light hover:-translate-y-px transition-all duration-200 no-underline'
 				>
 					Связаться
@@ -102,7 +102,7 @@ export default function Navbar() {
 						</Link>
 					))}
 					<Link
-						href='#contacts'
+						href='#cta'
 						onClick={() => setMenuOpen(false)}
 						className='mt-2 px-5 py-2.5 rounded-lg bg-brand-blue text-white text-sm font-semibold text-center no-underline'
 					>

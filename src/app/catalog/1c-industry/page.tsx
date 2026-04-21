@@ -1,5 +1,6 @@
 'use client'
 
+import CTA from '@/src/components/catalog/CTA'
 import { CATEGORY_ICONS } from '@/src/components/catalog/icons'
 import IndustryRow from '@/src/components/catalog/IndustryRow'
 import Footer from '@/src/components/Footer'
@@ -527,6 +528,8 @@ export default function Industry1CPage() {
 					</div>
 				</div>
 			</div>
+
+			<CTA />
 
 			<Footer />
 		</main>
