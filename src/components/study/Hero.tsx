@@ -64,8 +64,8 @@ export default function Hero() {
 				{/* Quick stats */}
 				<div className='grid grid-cols-2 md:grid-cols-4 gap-px mt-16 bg-white/7 border border-white/7 rounded-2xl overflow-hidden'>
 					{[
-						{ val: '6', label: 'курсов по 1С' },
-						{ val: '8–32', label: 'часа продолжительность' },
+						{ val: '5', label: 'курсов по 1С' },
+						{ val: '18-30', label: 'часа продолжительность' },
 						{ val: '25+', label: 'лет преподаём' },
 						{
 							val: '100%',

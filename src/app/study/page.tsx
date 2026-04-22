@@ -2,8 +2,10 @@ import Footer from '@/src/components/Footer'
 import Navbar from '@/src/components/Navbar'
 import Courses from '@/src/components/study/Courses'
 import CTA from '@/src/components/study/CTA'
+import Faq from '@/src/components/study/Faq'
 import Formats from '@/src/components/study/Formats'
 import Hero from '@/src/components/study/Hero'
+import Review from '@/src/components/study/Review'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
@@ -19,6 +21,8 @@ export default function StudyPage() {
 			<Hero />
 			<Courses />
 			<Formats />
+			<Review />
+			<Faq />
 			<CTA />
 			<Footer />
 		</main>
