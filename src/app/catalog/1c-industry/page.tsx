@@ -466,7 +466,7 @@ export default function Industry1CPage() {
 												className={`w-full text-left px-5 py-3 text-[14px] transition-all duration-150 ${
 													activeCat === cat.id
 														? 'text-brand-blue-light bg-brand-blue/10 font-medium border-l-2 border-brand-blue-light'
-														: 'text-[#8B9EB7] hover:text-[#EEF2FF] hover:bg-white/4 border-l-2 border-transparent'
+														: 'text-[#8B9EB7] hover:text-[#EEF2FF] hover:bg-white/4 border-l-2 border-transparent cursor-pointer'
 												}`}
 											>
 												{cat.label}

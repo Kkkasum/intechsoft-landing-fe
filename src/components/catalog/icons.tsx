@@ -1,3 +1,7 @@
+import CaseIcon from '@/src/components/ui/icons/CaseIcon'
+import LayersIcon from '@/src/components/ui/icons/LayersIcon'
+import NoteIcon from '@/src/components/ui/icons/NoteIcon'
+
 const iconProps = {
 	className: 'w-6 h-6',
 	viewBox: '0 0 24 24',
@@ -56,21 +60,10 @@ export const CATEGORY_ICONS: Record<string, React.ReactElement> = {
 	),
 
 	/* Управление ресурсами */
-	'resource-management': (
-		<svg {...iconProps}>
-			<circle cx='12' cy='12' r='3' />
-			<path d='M19.07 4.93a10 10 0 010 14.14M4.93 4.93a10 10 0 000 14.14' />
-			<path d='M15.54 8.46a5 5 0 010 7.07M8.46 8.46a5 5 0 000 7.07' />
-		</svg>
-	),
+	'resource-management': <NoteIcon />,
 
 	/* Профессиональные услуги */
-	professional: (
-		<svg {...iconProps}>
-			<path d='M20 7H4a2 2 0 00-2 2v6a2 2 0 002 2h16a2 2 0 002-2V9a2 2 0 00-2-2z' />
-			<path d='M16 17V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v12' />
-		</svg>
-	),
+	professional: <CaseIcon />,
 
 	/* Торговые предприятия */
 	'trade-enterprises': (
@@ -82,11 +75,5 @@ export const CATEGORY_ICONS: Record<string, React.ReactElement> = {
 	),
 
 	/* Другие отрасли */
-	other: (
-		<svg {...iconProps}>
-			<circle cx='12' cy='12' r='10' />
-			<line x1='12' y1='8' x2='12' y2='12' />
-			<line x1='12' y1='16' x2='12.01' y2='16' />
-		</svg>
-	),
+	other: <LayersIcon />,
 }

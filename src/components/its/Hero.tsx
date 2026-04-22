@@ -3,7 +3,7 @@ import Link from 'next/link'
 
 export default function Hero() {
 	return (
-		<section className='relative pt-17 overflow-hidden bg-navy'>
+		<section className='relative pt-17 overflow-hidden bg-navy h-screen'>
 			<div
 				className='absolute inset-0 pointer-events-none'
 				style={{

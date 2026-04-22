@@ -270,7 +270,7 @@ export default function About() {
 											key={i}
 											onClick={() => setActive(i)}
 											aria-label={`Слайд ${i + 1}`}
-											className={`rounded-full transition-all duration-300 ${
+											className={`rounded-full transition-all duration-300 cursor-pointer ${
 												i === active
 													? 'w-6 h-2 bg-brand-blue-light'
 													: 'w-2 h-2 bg-white/20 hover:bg-white/40'
@@ -284,14 +284,14 @@ export default function About() {
 									<button
 										onClick={prev}
 										aria-label='Предыдущий слайд'
-										className='w-10 h-10 rounded-xl flex items-center justify-center border border-white/13 text-[#8B9EB7] hover:border-brand-blue/35 hover:text-brand-blue-light hover:bg-brand-blue/10 transition-all duration-200'
+										className='w-10 h-10 rounded-xl flex items-center justify-center border border-white/13 text-[#8B9EB7] hover:border-brand-blue/35 hover:text-brand-blue-light hover:bg-brand-blue/10 transition-all duration-200 cursor-pointer'
 									>
 										<LeftArrowIcon />
 									</button>
 									<button
 										onClick={next}
 										aria-label='Следующий слайд'
-										className='w-10 h-10 rounded-xl flex items-center justify-center border border-white/13 text-[#8B9EB7] hover:border-brand-blue/35 hover:text-brand-blue-light hover:bg-brand-blue/10 transition-all duration-200'
+										className='w-10 h-10 rounded-xl flex items-center justify-center border border-white/13 text-[#8B9EB7] hover:border-brand-blue/35 hover:text-brand-blue-light hover:bg-brand-blue/10 transition-all duration-200 cursor-pointer'
 									>
 										<RightArrowIcon />
 									</button>
