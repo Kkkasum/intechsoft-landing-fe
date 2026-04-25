@@ -9,3 +9,5 @@ export const ROUTE_ITS = '/its'
 export const ROUTE_STORE = '/store'
 
 export const ROUTE_STUDY = '/study'
+
+export const ROUTE_BLOG = '/blog'
