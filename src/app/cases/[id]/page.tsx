@@ -111,7 +111,7 @@ export default async function CasePage({ params }: Props) {
 				{/* Content */}
 				<section className='py-16 bg-navy-2'>
 					<div className='max-w-240 mx-auto px-8 md:px-12'>
-						<div className='max-w-[720px]'>
+						<div className='max-w-180'>
 							<MdRenderer content={item.content} />
 						</div>
 					</div>

@@ -1,26 +1,45 @@
+import MonitorIcon from '@/src/components/ui/icons/MonitorIcon'
 import { Product } from '@/src/types/catalog.type'
+import Image from 'next/image'
+
+import firstImage from '@/src/assets/equipment/1.png'
+import secondImage from '@/src/assets/equipment/2.png'
+import thirdImage from '@/src/assets/equipment/3.png'
+import fourthImage from '@/src/assets/equipment/4.png'
+import fifthImage from '@/src/assets/equipment/5.png'
+import sixthImage from '@/src/assets/equipment/6.png'
+
+const imageMap: Record<number, any> = {
+	1: firstImage,
+	2: secondImage,
+	3: thirdImage,
+	4: fourthImage,
+	5: fifthImage,
+	6: sixthImage,
+}
 
 interface IProps {
 	product: Product
 }
 
 export default function EquipmentRow({ product }: IProps) {
+	const imageSrc = product.id ? imageMap[product.id] : null
+
 	return (
 		<div className='flex items-center gap-6 bg-white/4 border border-white/7 rounded-2xl px-6 py-5 hover:bg-white/7 hover:border-brand-blue/35 transition-all duration-200 group'>
 			{/* Image placeholder */}
-			<div className='w-20 h-20 shrink-0 rounded-xl bg-white/4 border border-white/7 flex items-center justify-center'>
-				<svg
-					className='w-9 h-9 text-[#4D6280]'
-					viewBox='0 0 24 24'
-					fill='none'
-					stroke='currentColor'
-					strokeWidth={1.4}
-					strokeLinecap='round'
-					strokeLinejoin='round'
-				>
-					<rect x='2' y='3' width='20' height='14' rx='2' />
-					<path d='M8 21h8M12 17v4' />
-				</svg>
+			<div className='w-40 h-40 shrink-0 rounded-xl bg-white/4 border border-white/7 flex items-center justify-center'>
+				{imageSrc ? (
+					<Image
+						src={imageSrc}
+						alt={product.name}
+						width={125}
+						height={125}
+						className='object-contain'
+					/>
+				) : (
+					<MonitorIcon />
+				)}
 			</div>
 
 			{/* Info */}

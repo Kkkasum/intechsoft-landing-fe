@@ -1,3 +1,4 @@
+import MonitorIcon from '@/src/components/ui/icons/MonitorIcon'
 import {
 	ROUTE_CATALOG_1C_INDUSTRY,
 	ROUTE_CATALOG_1C_PRODUCTS,
@@ -7,20 +8,7 @@ import Link from 'next/link'
 
 const products = [
 	{
-		icon: (
-			<svg
-				viewBox='0 0 24 24'
-				fill='none'
-				stroke='currentColor'
-				strokeWidth={1.8}
-				strokeLinecap='round'
-				strokeLinejoin='round'
-				className='w-6 h-6'
-			>
-				<rect x='2' y='3' width='20' height='14' rx='2' />
-				<path d='M8 21h8M12 17v4' />
-			</svg>
-		),
+		icon: <MonitorIcon />,
 		title: 'Торговое оборудование',
 		description:
 			'Профессиональное оснащение для эффективной работы торговой точки. Надежность, производительность и удобство — залог успешных продаж и довольных клиентов.',

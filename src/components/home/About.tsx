@@ -13,6 +13,7 @@ import RKeeperLogo from '@/src/assets/rkeeper.png'
 import SoftBalanceLogo from '@/src/assets/softbalance.png'
 import TaxComLogo from '@/src/assets/taxcom.png'
 import LeftArrowIcon from '@/src/components/ui/icons/LeftArrowIcon'
+import MonitorIcon from '@/src/components/ui/icons/MonitorIcon'
 import RightArrowIcon from '@/src/components/ui/icons/RightArrowIcon'
 import Image from 'next/image'
 import { useState } from 'react'
@@ -38,20 +39,7 @@ const features = [
 		text: 'Наши специалисты — это многопрофильная команда, которая решает любые задачи в единой точке контакта, экономя ваше время и ресурсы. ',
 	},
 	{
-		icon: (
-			<svg
-				viewBox='0 0 24 24'
-				fill='none'
-				stroke='currentColor'
-				strokeWidth={1.8}
-				strokeLinecap='round'
-				strokeLinejoin='round'
-				className='w-5 h-5'
-			>
-				<rect x='2' y='3' width='20' height='14' rx='2' />
-				<path d='M8 21h8M12 17v4' />
-			</svg>
-		),
+		icon: <MonitorIcon />,
 		title: 'Широкий продуктовый портфель',
 		text: 'Мы предлагаем ассортимент, включающий программные продукты и аппаратные решения от ведущих вендоров.',
 	},

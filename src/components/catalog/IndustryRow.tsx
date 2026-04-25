@@ -1,3 +1,4 @@
+import MonitorIcon from '@/src/components/ui/icons/MonitorIcon'
 import type { Product } from '@/src/types/catalog.type'
 import type { ReactNode } from 'react'
 
@@ -11,7 +12,7 @@ export default function IndustryRow({ product, icon }: Props) {
 		<div className='flex items-center gap-6 bg-white/4 border border-white/7 rounded-2xl px-6 py-5 hover:bg-white/7 hover:border-brand-blue/35 transition-all duration-200 group'>
 			{/* Icon block */}
 			<div className='w-14 h-14 shrink-0 rounded-xl bg-brand-blue/10 border border-brand-blue/35 flex items-center justify-center text-brand-blue-light'>
-				{icon ?? <DefaultIcon />}
+				{icon ?? <MonitorIcon />}
 			</div>
 
 			{/* Info */}
@@ -34,24 +35,5 @@ export default function IndustryRow({ product, icon }: Props) {
 				</div>
 			</div>
 		</div>
-	)
-}
-
-/* ─── Default fallback icon ──────────────────────────────── */
-
-function DefaultIcon() {
-	return (
-		<svg
-			className='w-6 h-6'
-			viewBox='0 0 24 24'
-			fill='none'
-			stroke='currentColor'
-			strokeWidth={1.6}
-			strokeLinecap='round'
-			strokeLinejoin='round'
-		>
-			<rect x='2' y='3' width='20' height='14' rx='2' />
-			<path d='M8 21h8M12 17v4' />
-		</svg>
 	)
 }
