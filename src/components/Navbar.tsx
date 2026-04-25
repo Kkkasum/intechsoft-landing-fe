@@ -1,7 +1,7 @@
 'use client'
 
 import LogoImage from '@/src/assets/logo.png'
-import { ROUTE_BLOG, ROUTE_HOME } from '@/src/routes'
+import { ROUTE_BLOG, ROUTE_CASES, ROUTE_HOME } from '@/src/routes'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useState } from 'react'
@@ -12,6 +12,7 @@ const navLinks = [
 	{ href: '/#about', label: 'О компании' },
 	{ href: '/#cta', label: 'Контакты' },
 	{ href: ROUTE_BLOG, label: 'Блог' },
+	{ href: ROUTE_CASES, label: 'Кейсы' },
 ]
 
 export default function Navbar() {

@@ -1,58 +1,77 @@
+import { Fragment } from 'react'
+
 type Props = {
 	content: string
 }
 
 /**
  * Lightweight markdown → JSX renderer.
- * Supports: h1-h3, bold, italic, inline code, code blocks,
- * unordered lists, ordered lists, blockquotes, horizontal rules,
- * paragraphs, and simple table (pipe-separated).
+ * Supports: h1–h3, bold, italic, bold+italic, inline code,
+ * fenced code blocks, unordered lists, ordered lists,
+ * blockquotes (multi-line), horizontal rules, pipe tables, paragraphs.
  */
 export default function MdRenderer({ content }: Props) {
-	const lines = content.split('\n')
+	// Bug fix #1: normalise \r\n → \n before splitting
+	const lines = content
+		.replace(/\r\n/g, '\n')
+		.replace(/\r/g, '\n')
+		.split('\n')
 	const elements: React.ReactNode[] = []
 	let i = 0
+	// Bug fix #2: monotonic key counter that is never reset or reused
+	let elKey = 0
 
-	const renderInline = (text: string): React.ReactNode => {
+	// ── Inline renderer ────────────────────────────────────────────────────
+
+	function renderInline(text: string): React.ReactNode {
 		const parts: React.ReactNode[] = []
-		// bold + italic combined, then bold, then italic, then inline code
 		const pattern =
 			/(\*\*\*(.+?)\*\*\*|\*\*(.+?)\*\*|__(.+?)__|_(.+?)_|\*(.+?)\*|`(.+?)`)/g
 		let last = 0
+		let spanKey = 0
 		let m: RegExpExecArray | null
-		let key = 0
 
 		while ((m = pattern.exec(text)) !== null) {
 			if (m.index > last) parts.push(text.slice(last, m.index))
+
 			if (m[2])
 				parts.push(
-					<strong key={key++}>
+					<strong key={spanKey++}>
 						<em>{m[2]}</em>
 					</strong>,
 				)
-			else if (m[3]) parts.push(<strong key={key++}>{m[3]}</strong>)
-			else if (m[4]) parts.push(<strong key={key++}>{m[4]}</strong>)
-			else if (m[5]) parts.push(<em key={key++}>{m[5]}</em>)
-			else if (m[6]) parts.push(<em key={key++}>{m[6]}</em>)
+			else if (m[3]) parts.push(<strong key={spanKey++}>{m[3]}</strong>)
+			else if (m[4]) parts.push(<strong key={spanKey++}>{m[4]}</strong>)
+			else if (m[5]) parts.push(<em key={spanKey++}>{m[5]}</em>)
+			else if (m[6]) parts.push(<em key={spanKey++}>{m[6]}</em>)
 			else if (m[7])
 				parts.push(
 					<code
-						key={key++}
+						key={spanKey++}
 						className='px-1.5 py-0.5 rounded bg-white/8 text-brand-blue-light text-[0.88em] font-mono'
 					>
 						{m[7]}
 					</code>,
 				)
+
 			last = m.index + m[0].length
 		}
+
 		if (last < text.length) parts.push(text.slice(last))
-		return parts.length === 1 ? parts[0] : parts
+
+		// Bug fix #3: never return a raw array — use Fragment so React
+		// doesn't see an unkeyed array of children at the call site
+		if (parts.length === 0) return null
+		if (parts.length === 1) return parts[0]
+		return <Fragment>{parts}</Fragment>
 	}
+
+	// ── Block parser ───────────────────────────────────────────────────────
 
 	while (i < lines.length) {
 		const line = lines[i]
 
-		// Code block
+		// ── Fenced code block ─────────────────────────────────────────────
 		if (line.startsWith('```')) {
 			const codeLines: string[] = []
 			i++
@@ -60,29 +79,29 @@ export default function MdRenderer({ content }: Props) {
 				codeLines.push(lines[i])
 				i++
 			}
+			i++ // consume closing ```
 			elements.push(
 				<pre
-					key={i}
+					key={elKey++}
 					className='my-6 p-5 rounded-xl bg-navy-3 border border-white/7 overflow-x-auto text-[13px] font-mono text-[#8B9EB7] leading-relaxed'
 				>
 					<code>{codeLines.join('\n')}</code>
 				</pre>,
 			)
-			i++
 			continue
 		}
 
-		// Table (pipe syntax)
+		// ── Pipe table ────────────────────────────────────────────────────
 		if (
 			line.includes('|') &&
 			i + 1 < lines.length &&
-			lines[i + 1].includes('---')
+			/^\|?[\s\-:|]+\|/.test(lines[i + 1])
 		) {
 			const headers = line
 				.split('|')
 				.map(c => c.trim())
 				.filter(Boolean)
-			i += 2 // skip header row and separator
+			i += 2 // skip header + separator rows
 			const rows: string[][] = []
 			while (i < lines.length && lines[i].includes('|')) {
 				rows.push(
@@ -95,7 +114,7 @@ export default function MdRenderer({ content }: Props) {
 			}
 			elements.push(
 				<div
-					key={i}
+					key={elKey++}
 					className='my-6 overflow-x-auto rounded-xl border border-white/7'
 				>
 					<table className='w-full text-[13px]'>
@@ -134,11 +153,11 @@ export default function MdRenderer({ content }: Props) {
 			continue
 		}
 
-		// Headings
+		// ── Headings ──────────────────────────────────────────────────────
 		if (line.startsWith('### ')) {
 			elements.push(
 				<h3
-					key={i}
+					key={elKey++}
 					className='font-display text-[17px] font-semibold text-[#EEF2FF] mt-8 mb-3 leading-snug'
 				>
 					{renderInline(line.slice(4))}
@@ -150,7 +169,7 @@ export default function MdRenderer({ content }: Props) {
 		if (line.startsWith('## ')) {
 			elements.push(
 				<h2
-					key={i}
+					key={elKey++}
 					className='font-display text-[22px] font-bold text-[#EEF2FF] mt-10 mb-4 leading-snug'
 				>
 					{renderInline(line.slice(3))}
@@ -162,7 +181,7 @@ export default function MdRenderer({ content }: Props) {
 		if (line.startsWith('# ')) {
 			elements.push(
 				<h1
-					key={i}
+					key={elKey++}
 					className='font-display text-[clamp(24px,3vw,36px)] font-bold text-[#EEF2FF] mb-6 leading-tight'
 				>
 					{renderInline(line.slice(2))}
@@ -172,28 +191,34 @@ export default function MdRenderer({ content }: Props) {
 			continue
 		}
 
-		// Horizontal rule
-		if (line.match(/^(-{3,}|\*{3,}|_{3,})$/)) {
-			elements.push(<hr key={i} className='my-8 border-white/10' />)
+		// ── Horizontal rule ───────────────────────────────────────────────
+		if (/^(-{3,}|\*{3,}|_{3,})$/.test(line)) {
+			elements.push(<hr key={elKey++} className='my-8 border-white/10' />)
 			i++
 			continue
 		}
 
-		// Blockquote
+		// ── Blockquote (grouped — consecutive "> " lines → one element) ──
 		if (line.startsWith('> ')) {
+			const bqLines: string[] = []
+			while (i < lines.length && lines[i].startsWith('> ')) {
+				bqLines.push(lines[i].slice(2))
+				i++
+			}
 			elements.push(
 				<blockquote
-					key={i}
-					className='my-5 pl-4 border-l-2 border-brand-blue/50 text-[#8B9EB7] italic text-[15px] leading-relaxed'
+					key={elKey++}
+					className='my-5 pl-4 border-l-2 border-brand-blue/50 text-[#8B9EB7] italic text-[15px] leading-relaxed space-y-1'
 				>
-					{renderInline(line.slice(2))}
+					{bqLines.map((bl, bi) => (
+						<p key={bi}>{renderInline(bl)}</p>
+					))}
 				</blockquote>,
 			)
-			i++
 			continue
 		}
 
-		// Unordered list
+		// ── Unordered list ────────────────────────────────────────────────
 		if (line.startsWith('- ') || line.startsWith('* ')) {
 			const items: string[] = []
 			while (
@@ -204,14 +229,14 @@ export default function MdRenderer({ content }: Props) {
 				i++
 			}
 			elements.push(
-				<ul key={i} className='my-4 flex flex-col gap-2'>
+				<ul key={elKey++} className='my-4 flex flex-col gap-2'>
 					{items.map((item, idx) => (
 						<li
 							key={idx}
 							className='flex items-start gap-2.5 text-[15px] text-[#8B9EB7] leading-relaxed'
 						>
 							<span className='mt-2 w-1.5 h-1.5 rounded-full bg-brand-blue-light shrink-0' />
-							{renderInline(item)}
+							<span>{renderInline(item)}</span>
 						</li>
 					))}
 				</ul>,
@@ -219,15 +244,18 @@ export default function MdRenderer({ content }: Props) {
 			continue
 		}
 
-		// Ordered list
+		// ── Ordered list ──────────────────────────────────────────────────
 		if (/^\d+\.\s/.test(line)) {
 			const items: string[] = []
 			while (i < lines.length && /^\d+\.\s/.test(lines[i])) {
-				items.push(lines[i].replace(/^\d+\.\s/, ''))
+				items.push(lines[i].replace(/^\d+\.\s+/, ''))
 				i++
 			}
 			elements.push(
-				<ol key={i} className='my-4 flex flex-col gap-2 list-none'>
+				<ol
+					key={elKey++}
+					className='my-4 flex flex-col gap-2 list-none'
+				>
 					{items.map((item, idx) => (
 						<li
 							key={idx}
@@ -236,7 +264,7 @@ export default function MdRenderer({ content }: Props) {
 							<span className='shrink-0 w-6 h-6 rounded-full bg-brand-blue/15 border border-brand-blue/30 flex items-center justify-center text-[11px] font-semibold text-brand-blue-light mt-0.5'>
 								{idx + 1}
 							</span>
-							{renderInline(item)}
+							<span>{renderInline(item)}</span>
 						</li>
 					))}
 				</ol>,
@@ -244,16 +272,16 @@ export default function MdRenderer({ content }: Props) {
 			continue
 		}
 
-		// Empty line
+		// ── Empty line ────────────────────────────────────────────────────
 		if (line.trim() === '') {
 			i++
 			continue
 		}
 
-		// Paragraph
+		// ── Paragraph ─────────────────────────────────────────────────────
 		elements.push(
 			<p
-				key={i}
+				key={elKey++}
 				className='text-[15px] text-[#8B9EB7] leading-relaxed my-3'
 			>
 				{renderInline(line)}

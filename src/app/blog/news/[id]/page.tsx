@@ -1,6 +1,6 @@
 import Footer from '@/src/components/Footer'
 import Navbar from '@/src/components/Navbar'
-import MdRenderer from '@/src/components/blog/MdRenderer'
+import MdRenderer from '@/src/components/ui/MdRenderer'
 import { blogPosts, formatDate, getPostById } from '@/src/content/blog'
 import type { Metadata } from 'next'
 import Link from 'next/link'

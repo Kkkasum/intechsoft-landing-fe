@@ -1,5 +1,7 @@
 import LogoImage from '@/src/assets/logo.png'
 import {
+	ROUTE_BLOG,
+	ROUTE_CASES,
 	ROUTE_CATALOG_1C_INDUSTRY,
 	ROUTE_CATALOG_1C_PRODUCTS,
 	ROUTE_CATALOG_EQUIPMENT,
@@ -26,6 +28,8 @@ const serviceLinks = [
 const companyLinks = [
 	{ label: 'О нас', href: '/#about' },
 	{ label: 'FAQ', href: '/#faq' },
+	{ label: 'Блог', href: ROUTE_BLOG },
+	{ label: 'Кейсы', href: ROUTE_CASES },
 ]
 
 export default function Footer() {
@@ -123,13 +127,13 @@ export default function Footer() {
 						<p className='text-[13px] text-[#8B9EB7] leading-relaxed mt-6'>
 							г. Махачкала,
 							<br />
-							пр-кт Гамидова, д. 18п, 710 офис
+							пр-кт Гамидова, д. 18п, офис 710
 						</p>
 
 						<p className='text-[13px] text-[#8B9EB7] leading-relaxed mt-6'>
 							г. Пятигорск,
 							<br />
-							ул. Крайнего, д. 49
+							ул. Кучуры, д. 49, офис 205
 						</p>
 					</div>
 				</div>
