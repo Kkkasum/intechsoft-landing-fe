@@ -27,7 +27,7 @@ export default function EquipmentRow({ product }: IProps) {
 	return (
 		<div className='flex items-center gap-6 bg-white/4 border border-white/7 rounded-2xl px-6 py-5 hover:bg-white/7 hover:border-brand-blue/35 transition-all duration-200 group'>
 			{/* Image placeholder */}
-			<div className='w-40 h-40 shrink-0 rounded-xl bg-white/4 border border-white/7 flex items-center justify-center'>
+			<div className='w-40 h-40 shrink-0 rounded-xl bg-white/4 border border-white/7 flex items-center justify-center text-[#4D6280]'>
 				{imageSrc ? (
 					<Image
 						src={imageSrc}
@@ -37,7 +37,7 @@ export default function EquipmentRow({ product }: IProps) {
 						className='object-contain'
 					/>
 				) : (
-					<MonitorIcon />
+					<MonitorIcon width='192' height='192' />
 				)}
 			</div>
 

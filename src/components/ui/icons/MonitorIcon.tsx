@@ -1,8 +1,15 @@
-export default function MonitorIcon() {
+export default function MonitorIcon({
+	width = '24',
+	height = '24',
+}: {
+	width?: string
+	height?: string
+}) {
 	return (
 		<svg
-			className='w-48 h-48 text-[#4D6280]'
 			viewBox='0 0 24 24'
+			width={width}
+			height={height}
 			fill='none'
 			stroke='currentColor'
 			strokeWidth={1.4}
