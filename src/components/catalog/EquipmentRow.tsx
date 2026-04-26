@@ -1,13 +1,12 @@
-import MonitorIcon from '@/src/components/ui/icons/MonitorIcon'
-import { Product } from '@/src/types/catalog.type'
-import Image from 'next/image'
-
 import firstImage from '@/src/assets/equipment/1.png'
 import secondImage from '@/src/assets/equipment/2.png'
 import thirdImage from '@/src/assets/equipment/3.png'
 import fourthImage from '@/src/assets/equipment/4.png'
 import fifthImage from '@/src/assets/equipment/5.png'
 import sixthImage from '@/src/assets/equipment/6.png'
+import MonitorIcon from '@/src/components/ui/icons/MonitorIcon'
+import { Product } from '@/src/types/catalog.type'
+import Image from 'next/image'
 
 const imageMap: Record<number, any> = {
 	1: firstImage,

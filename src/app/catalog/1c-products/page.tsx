@@ -1,7 +1,7 @@
 'use client'
 
 import CTA from '@/src/components/catalog/CTA'
-import Row from '@/src/components/catalog/Row'
+import ProductRow from '@/src/components/catalog/ProductRow'
 import Footer from '@/src/components/Footer'
 import Navbar from '@/src/components/Navbar'
 import { productsCatalog } from '@/src/content/catalog'
@@ -123,7 +123,7 @@ export default function Products1CPage() {
 							{/* Products list */}
 							<div className='flex flex-col gap-3'>
 								{products.map(p => (
-									<Row key={p.id} product={p} />
+									<ProductRow key={p.id} product={p} />
 								))}
 
 								{products.length === 0 && (

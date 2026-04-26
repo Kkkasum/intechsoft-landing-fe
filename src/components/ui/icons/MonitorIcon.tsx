@@ -1,7 +1,7 @@
 export default function MonitorIcon() {
 	return (
 		<svg
-			className='w-9 h-9 text-[#4D6280]'
+			className='w-48 h-48 text-[#4D6280]'
 			viewBox='0 0 24 24'
 			fill='none'
 			stroke='currentColor'

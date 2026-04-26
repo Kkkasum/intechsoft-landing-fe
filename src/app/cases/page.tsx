@@ -60,8 +60,10 @@ export default function CasesPage() {
 						Реальные проекты
 					</h1>
 					<p className='text-[18px] text-[#8B9EB7] leading-relaxed max-w-130 mb-10'>
-						Автоматизируем бизнес в Дагестане более 25 лет. Вот
-						задачи, которые мы уже решили.
+						За годы работы мы автоматизировали бизнесы разного
+						масштаба и профиля, успешно справляемся с задачами в
+						любой отрасли и находим решения для самых сложных
+						проектов
 					</p>
 
 					{/* Stats row */}
@@ -101,7 +103,7 @@ export default function CasesPage() {
 							{group.name}
 						</h2>
 
-						<div className='grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5'>
+						<div className='grid grid-cols-1 gap-5'>
 							{group.items.map(item => (
 								<CaseCard key={item.id} item={item} />
 							))}

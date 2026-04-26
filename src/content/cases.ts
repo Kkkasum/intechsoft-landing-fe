@@ -3,6 +3,7 @@ export type Case = {
 	title: string
 	company: string
 	industry: string
+	image?: string
 	tags: string[]
 	excerpt: string
 	content: string // markdown

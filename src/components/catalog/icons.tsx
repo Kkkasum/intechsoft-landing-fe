@@ -1,5 +1,8 @@
 import CaseIcon from '@/src/components/ui/icons/CaseIcon'
+import CateringIcon from '@/src/components/ui/icons/CateringIcon'
+import ConstructionIcon from '@/src/components/ui/icons/ConstructionIcon'
 import LayersIcon from '@/src/components/ui/icons/LayersIcon'
+import MedicineIcon from '@/src/components/ui/icons/MedicineIcon'
 import NoteIcon from '@/src/components/ui/icons/NoteIcon'
 
 const iconProps = {
@@ -14,22 +17,10 @@ const iconProps = {
 
 export const CATEGORY_ICONS: Record<string, React.ReactElement> = {
 	/* Пищевая промышленность */
-	food: (
-		<svg {...iconProps}>
-			<path d='M18 8h1a4 4 0 010 8h-1' />
-			<path d='M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z' />
-			<line x1='6' y1='1' x2='6' y2='4' />
-			<line x1='10' y1='1' x2='10' y2='4' />
-			<line x1='14' y1='1' x2='14' y2='4' />
-		</svg>
-	),
+	food: <CateringIcon />,
 
 	/* Здравоохранение */
-	healthcare: (
-		<svg {...iconProps}>
-			<path d='M22 12h-4l-3 9L9 3l-3 9H2' />
-		</svg>
-	),
+	healthcare: <MedicineIcon />,
 
 	/* Логистика и склад */
 	'logistics-warehouse': (
@@ -42,13 +33,7 @@ export const CATEGORY_ICONS: Record<string, React.ReactElement> = {
 	),
 
 	/* Строительство */
-	construction: (
-		<svg {...iconProps}>
-			<polygon points='3 22 21 22 12 2 3 22' />
-			<line x1='12' y1='8' x2='12' y2='14' />
-			<line x1='12' y1='17' x2='12.01' y2='17' />
-		</svg>
-	),
+	construction: <ConstructionIcon />,
 
 	/* Полиграфия */
 	printing: (

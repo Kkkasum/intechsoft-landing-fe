@@ -2,12 +2,12 @@ import MonitorIcon from '@/src/components/ui/icons/MonitorIcon'
 import type { Product } from '@/src/types/catalog.type'
 import type { ReactNode } from 'react'
 
-type Props = {
+interface IProps {
 	product: Product
 	icon?: ReactNode
 }
 
-export default function IndustryRow({ product, icon }: Props) {
+export default function IndustryRow({ product, icon }: IProps) {
 	return (
 		<div className='flex items-center gap-6 bg-white/4 border border-white/7 rounded-2xl px-6 py-5 hover:bg-white/7 hover:border-brand-blue/35 transition-all duration-200 group'>
 			{/* Icon block */}

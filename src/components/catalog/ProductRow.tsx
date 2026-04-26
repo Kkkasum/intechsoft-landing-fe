@@ -5,7 +5,7 @@ interface IProps {
 	product: Product
 }
 
-export default function Row({ product }: IProps) {
+export default function ProductRow({ product }: IProps) {
 	return (
 		<div className='flex items-center gap-6 bg-white/4 border border-white/7 rounded-2xl px-6 py-5 hover:bg-white/7 hover:border-brand-blue/35 transition-all duration-200 group'>
 			{/* Image placeholder */}
@@ -33,22 +33,6 @@ export default function Row({ product }: IProps) {
 					)}
 				</div>
 			</div>
-
-			{/* Arrow */}
-			{/* <div className='shrink-0 w-9 h-9 rounded-xl flex items-center justify-center border border-white/7 text-[#4D6280] group-hover:border-brand-blue/35 group-hover:text-brand-blue-light transition-all duration-150'>
-				<svg
-					width='14'
-					height='14'
-					viewBox='0 0 16 16'
-					fill='none'
-					stroke='currentColor'
-					strokeWidth={1.8}
-					strokeLinecap='round'
-					strokeLinejoin='round'
-				>
-					<path d='M6 3l5 5-5 5' />
-				</svg>
-			</div> */}
 		</div>
 	)
 }
