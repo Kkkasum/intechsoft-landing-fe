@@ -67,20 +67,23 @@ export default function CasesPage() {
 					</p>
 
 					{/* Stats row */}
-					<div className='flex flex-wrap gap-8'>
+					<div className='grid grid-cols-2 md:grid-cols-3 gap-px mt-16 bg-white/7 border border-white/7 rounded-2xl overflow-hidden'>
 						{[
+							{ val: '14,000+', label: 'успешных кейсов' },
 							{
-								val: `${cases.length}+`,
-								label: 'кейсов в портфолио',
+								val: '1,000+',
+								label: 'запросов на техническую поддержку решается ежемесячно',
 							},
-							{ val: `${industries.length}`, label: 'отрасли' },
-							{ val: '25+', label: 'лет опыта' },
+							{
+								val: '~30%',
+								label: 'времени экономим нашим клиентам',
+							},
 						].map(s => (
-							<div key={s.label}>
-								<div className='font-display text-2xl font-bold text-brand-blue-light'>
+							<div key={s.label} className='px-6 py-5 bg-navy'>
+								<div className='font-display text-2xl font-bold text-brand-blue-light mb-1'>
 									{s.val}
 								</div>
-								<div className='text-[13px] text-[#4D6280] mt-0.5'>
+								<div className='text-[13px] text-[#8B9EB7] leading-snug'>
 									{s.label}
 								</div>
 							</div>
@@ -103,7 +106,7 @@ export default function CasesPage() {
 							{group.name}
 						</h2>
 
-						<div className='grid grid-cols-1 gap-5'>
+						<div className='grid grid-cols-3 gap-5'>
 							{group.items.map(item => (
 								<CaseCard key={item.id} item={item} />
 							))}
