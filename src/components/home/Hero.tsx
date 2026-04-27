@@ -1,12 +1,13 @@
 'use client'
 
-import OneCIcon from '@/src/components/ui/icons/1CIcon'
+import itsImage from '@/src/assets/main/its.jpeg'
+import storeImage from '@/src/assets/main/store.jpeg'
+import studyImage from '@/src/assets/main/study.jpeg'
 import ArrowIcon from '@/src/components/ui/icons/ArrowIcon'
 import LeftArrowIcon from '@/src/components/ui/icons/LeftArrowIcon'
 import RightArrowIcon from '@/src/components/ui/icons/RightArrowIcon'
-import StoreIcon from '@/src/components/ui/icons/StoreIcon'
-import StudyIcon from '@/src/components/ui/icons/StudyIcon'
 import { ROUTE_ITS, ROUTE_STORE, ROUTE_STUDY } from '@/src/routes'
+import Image from 'next/image'
 import Link from 'next/link'
 import { useState } from 'react'
 
@@ -14,22 +15,19 @@ const slides = [
 	{
 		title: 'ИТС',
 		label: 'Сопровождение 1С',
-		desc: 'Ваш ключ к актуальным обновлениям, круглосуточной поддержке и экономии ресурсов',
-		icon: <OneCIcon width='156' height='100' color='#fff' />,
+		image: itsImage,
 		to: ROUTE_ITS,
 	},
 	{
 		title: 'Розница',
 		label: 'Автоматизация магазина',
-		desc: 'Решения, которрые упрощают работу и помогают зарабатывать больше',
-		icon: <StoreIcon width='100' height='100' color='#fff' />,
+		image: storeImage,
 		to: ROUTE_STORE,
 	},
 	{
 		title: 'Курсы',
-		label: 'профессиональной подготовки по 1С',
-		desc: 'Стать экспертом в работе с 1С — повысить свою конкурентоспособность и овладеть востребованными навыками',
-		icon: <StudyIcon width='100' height='100' color='#fff' />,
+		label: 'Профессиональной подготовки по 1С',
+		image: studyImage,
 		to: ROUTE_STUDY,
 	},
 ]
@@ -103,41 +101,49 @@ export default function Hero() {
 						{/* Slide card */}
 						<Link
 							href={slide.to}
-							className='relative bg-white/4 border border-white/13 rounded-2xl p-8 backdrop-blur-md overflow-hidden h-100 flex flex-col justify-between cursor-pointer hover:border-brand-blue-light transition-colors duration-200'
+							className='group relative rounded-2xl overflow-hidden h-100 flex flex-col justify-end cursor-pointer border border-white/10 hover:border-brand-blue/40 transition-colors duration-300'
 						>
-							{/* Subtle glow behind number */}
+							{/* Full-bleed image */}
+							<Image
+								key={slide.title}
+								src={slide.image}
+								alt={slide.title}
+								fill
+								className='object-cover object-center transition-transform duration-500 group-hover:scale-[1.03]'
+								priority
+							/>
+
+							{/* Gradient overlay — bottom fade for text legibility */}
 							<div
-								className='absolute -top-8 -right-8 w-40 h-40 rounded-full pointer-events-none'
+								className='absolute inset-0 pointer-events-none'
 								style={{
 									background:
-										'radial-gradient(circle, rgba(29,111,232,0.18) 0%, transparent 70%)',
+										'linear-gradient(to top, rgba(5,12,30,0.85) 0%, rgba(5,12,30,0.35) 45%, transparent 75%)',
 								}}
 							/>
 
-							<div>
-								{/* Icon */}
-								<div className='w-40 h-36 rounded-xl bg-brand-blue/10 border border-white/13 flex items-center justify-center text-brand-blue-light mb-6 p-5'>
-									{slide.icon}
-								</div>
+							{/* Top subtle vignette */}
+							<div
+								className='absolute inset-0 pointer-events-none'
+								style={{
+									background:
+										'radial-gradient(ellipse 120% 80% at 50% 0%, rgba(29,111,232,0.08) 0%, transparent 60%)',
+								}}
+							/>
 
-								{/* Title */}
-								<div className='font-display text-[48px] font-bold text-brand-blue-light leading-none mb-2'>
+							{/* Text content */}
+							<div className='relative z-10 p-7'>
+								<div className='font-display text-[52px] font-bold text-white leading-none mb-1 tracking-tight'>
 									{slide.title}
 								</div>
-
-								{/* Label */}
-								<div className='text-[15px] font-semibold text-[#EEF2FF] mb-3'>
+								<div className='text-[14px] font-medium text-[#93B4D8] uppercase tracking-widest'>
 									{slide.label}
 								</div>
+							</div>
 
-								{/* Description */}
-								<p className='text-[14px] text-[#8B9EB7] leading-relaxed'>
-									{slide.desc}
-								</p>
-
-								<div className='absolute bottom-5 right-5 text-[#4D6280]'>
-									<ArrowIcon />
-								</div>
+							{/* Arrow */}
+							<div className='absolute bottom-6 right-6 z-10 text-white/30 group-hover:text-brand-blue-light transition-colors duration-200'>
+								<ArrowIcon />
 							</div>
 						</Link>
 
