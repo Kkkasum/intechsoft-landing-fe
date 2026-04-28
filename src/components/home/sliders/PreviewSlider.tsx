@@ -14,18 +14,21 @@ import { FC, useState } from 'react'
 const slides = [
 	{
 		title: 'ИТС',
+		titlePosition: 'bottom',
 		label: 'Сопровождение 1С',
 		image: itsImage,
 		to: ROUTE_ITS,
 	},
 	{
 		title: 'Розница',
+		titlePosition: 'top',
 		label: 'Автоматизация магазина',
 		image: storeImage,
 		to: ROUTE_STORE,
 	},
 	{
 		title: 'Курсы',
+		titlePosition: 'top',
 		label: 'Профессиональной подготовки по 1С',
 		image: studyImage,
 		to: ROUTE_STUDY,
@@ -76,11 +79,13 @@ export const PreviewSlider: FC = () => {
 				/>
 
 				{/* Text content */}
-				<div className='relative z-10 p-7'>
+				<div
+					className={`absolute z-10 p-7 ${slide.titlePosition === 'top' ? 'top-0' : 'bottom-0'}`}
+				>
 					<div className='font-display text-[52px] font-bold text-white leading-none mb-1 tracking-tight'>
 						{slide.title}
 					</div>
-					<div className='text-[14px] font-medium text-[#93B4D8] uppercase tracking-widest'>
+					<div className='text-[14px] font-medium text-brand-blue-light uppercase tracking-widest'>
 						{slide.label}
 					</div>
 				</div>
