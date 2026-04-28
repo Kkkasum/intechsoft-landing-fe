@@ -1,12 +1,18 @@
 'use client'
 
+import equipmentImage from '@/src/assets/main/equipment.jpg'
 import itsImage from '@/src/assets/main/its.jpeg'
 import storeImage from '@/src/assets/main/store.jpeg'
 import studyImage from '@/src/assets/main/study.jpeg'
 import ArrowIcon from '@/src/components/ui/icons/ArrowIcon'
 import LeftArrowIcon from '@/src/components/ui/icons/LeftArrowIcon'
 import RightArrowIcon from '@/src/components/ui/icons/RightArrowIcon'
-import { ROUTE_ITS, ROUTE_STORE, ROUTE_STUDY } from '@/src/routes'
+import {
+	ROUTE_CATALOG_EQUIPMENT,
+	ROUTE_ITS,
+	ROUTE_STORE,
+	ROUTE_STUDY,
+} from '@/src/routes'
 import Image from 'next/image'
 import Link from 'next/link'
 import { FC, useState } from 'react'
@@ -32,6 +38,13 @@ const slides = [
 		label: 'Профессиональной подготовки по 1С',
 		image: studyImage,
 		to: ROUTE_STUDY,
+	},
+	{
+		title: 'Торговое',
+		titlePosition: 'top',
+		label: 'оборудование',
+		image: equipmentImage,
+		to: ROUTE_CATALOG_EQUIPMENT,
 	},
 ]
 
