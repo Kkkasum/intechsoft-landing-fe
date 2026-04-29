@@ -1,7 +1,7 @@
 'use client'
 
 import CTA from '@/src/components/catalog/CTA'
-import EquipmentRow from '@/src/components/catalog/EquipmentRow'
+import EquipmentItem from '@/src/components/catalog/EquipmentItem'
 import Footer from '@/src/components/Footer'
 import Navbar from '@/src/components/Navbar'
 import { equipmentCatalog } from '@/src/content/catalog'
@@ -121,9 +121,9 @@ export default function EquipmentPage() {
 							</p>
 
 							{/* Products list */}
-							<div className='flex flex-col gap-3'>
+							<div className='grid grid-cols-3 gap-3'>
 								{products.map(p => (
-									<EquipmentRow key={p.id} product={p} />
+									<EquipmentItem key={p.id} product={p} />
 								))}
 
 								{products.length === 0 && (
