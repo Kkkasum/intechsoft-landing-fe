@@ -14,10 +14,10 @@ export type AnnouncePost = {
 	type: 'announce'
 	title: string
 	excerpt: string
-	date: string
+	date: Date
 	category: string
 	event: {
-		date: string
+		date: Date
 		format: string
 		duration: string
 	}
@@ -26,8 +26,8 @@ export type AnnouncePost = {
 	agenda: string[]
 	risks: string[]
 	conclusion: string
-	registration: string
 	ctaPhone: string
+	recordUrl?: string
 }
 
 export type BlogPost = NewsPost | AnnouncePost
@@ -40,10 +40,10 @@ export const blogPosts: BlogPost[] = [
 		title: 'Бесплатный онлайн-семинар: Новые правила маркировки товаров и работа с ними в 1С',
 		excerpt:
 			'Разберём актуальные изменения в законодательстве, покажем как они реализованы в 1С и ответим на вопросы участников.',
-		date: '2026-04-21',
+		date: new Date('2026-04-21'),
 		category: 'Маркировка',
 		event: {
-			date: '28 апреля 2026',
+			date: new Date('2026-04-28'),
 			format: 'Онлайн',
 			duration: 'Около 2 часов',
 		},
@@ -63,8 +63,8 @@ export const blogPosts: BlogPost[] = [
 		],
 		conclusion:
 			'Поэтому важно не просто «разобраться», а настроить систему правильно и работать без рисков.\n\nВы можете подключиться из любой точки — нужен только интернет.\n\nУчастие в семинаре бесплатное, но требуется предварительная регистрация.',
-		registration: 'Позвоните нашим менеджерам, чтобы подтвердить участие.',
 		ctaPhone: '+79634208232',
+		recordUrl: 'https://disk.360.yandex.ru/i/CD6D0BdDDEXv8w',
 	},
 
 	// ────────── СТАТЬИ ──────────
@@ -185,7 +185,7 @@ export function getAnnoncesPosts(): AnnouncePost[] {
 	return blogPosts.filter((p): p is AnnouncePost => p.type === 'announce')
 }
 
-export function formatDate(dateStr: string): string {
+export function formatDate(dateStr: string | Date): string {
 	const d = new Date(dateStr)
 	return d.toLocaleDateString('ru-RU', {
 		day: 'numeric',

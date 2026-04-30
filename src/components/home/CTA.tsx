@@ -1,10 +1,21 @@
 'use client'
 
 import { TicketModal } from '@/src/components/TicketModal'
+import { EAction } from '@/src/interfaces/ticket.interface'
+import { ticketsCreateTicket } from '@/src/services/tickets.service'
 import { useState } from 'react'
 
 export default function CTA() {
 	const [modalOpen, setModalOpen] = useState<boolean>(false)
+
+	const onSubmit = async (name: string, phone: string, email?: string) => {
+		await ticketsCreateTicket({
+			full_name: name,
+			phone,
+			email,
+			action: EAction.COMMON,
+		})
+	}
 
 	return (
 		<>
@@ -31,7 +42,12 @@ export default function CTA() {
 				</div>
 			</section>
 
-			{modalOpen && <TicketModal onClose={() => setModalOpen(false)} />}
+			{modalOpen && (
+				<TicketModal
+					onClose={() => setModalOpen(false)}
+					onSubmit={onSubmit}
+				/>
+			)}
 		</>
 	)
 }

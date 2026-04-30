@@ -133,7 +133,7 @@ export default function Footer() {
 						<p className='text-[13px] text-[#8B9EB7] leading-relaxed mt-6'>
 							г. Пятигорск,
 							<br />
-							ул. Кучуры, д. 49, офис 205
+							ул. Кучуры, д. 8, офис 104
 						</p>
 					</div>
 				</div>

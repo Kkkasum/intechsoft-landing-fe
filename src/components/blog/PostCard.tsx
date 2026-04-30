@@ -1,16 +1,21 @@
+import CalendarIcon from '@/src/components/ui/icons/CalendarIcon'
 import { formatDate, type BlogPost } from '@/src/content/blog'
 import Link from 'next/link'
+import FormatIcon from '../ui/icons/FormatIcon'
 
 export default function PostCard({ post }: { post: BlogPost }) {
-	const href =
-		post.type === 'announce'
-			? `/blog/announce/${post.id}`
-			: `/blog/news/${post.id}`
+	const isAnnounce = post.type === 'announce'
+	const isFinished = isAnnounce && post.event.date.getTime() < Date.now()
+	const isRecordAvailable = isAnnounce && !!post.recordUrl
+
+	const href = isAnnounce
+		? `/blog/announce/${post.id}`
+		: `/blog/news/${post.id}`
 
 	return (
 		<Link
 			href={href}
-			className='group flex flex-col bg-white/4 border border-white/7 rounded-2xl p-7 hover:bg-white/7 hover:border-brand-blue/35 transition-all duration-200 no-underline'
+			className={`group flex flex-col bg-white/4 border border-white/7 rounded-2xl p-7 hover:bg-white/7 hover:opacity-100 hover:border-brand-blue/35 transition-all duration-200 no-underline ${isFinished ? 'opacity-80' : ''}`}
 		>
 			{/* Top row */}
 			<div className='flex items-center justify-between gap-3 mb-5'>
@@ -19,12 +24,12 @@ export default function PostCard({ post }: { post: BlogPost }) {
 				</span>
 				<span
 					className={`text-xs font-semibold px-3 py-1 rounded-full border ${
-						post.type === 'announce'
+						isAnnounce
 							? 'bg-amber-500/10 border-amber-500/30 text-amber-400'
 							: 'bg-white/5 border-white/10 text-[#8B9EB7]'
 					}`}
 				>
-					{post.type === 'announce' ? 'Анонс' : 'Статья'}
+					{isAnnounce ? 'Анонс' : 'Статья'}
 				</span>
 			</div>
 
@@ -39,37 +44,22 @@ export default function PostCard({ post }: { post: BlogPost }) {
 			</p>
 
 			{/* Anonce event info */}
-			{post.type === 'announce' && (
+			{isAnnounce && (
 				<div className='flex flex-wrap gap-2 mb-5'>
-					<span className='inline-flex items-center gap-1.5 text-[12px] text-[#8B9EB7] px-2.5 py-1 rounded-lg bg-white/4 border border-white/7'>
-						<svg
-							viewBox='0 0 16 16'
-							fill='none'
-							stroke='currentColor'
-							strokeWidth={1.6}
-							strokeLinecap='round'
-							strokeLinejoin='round'
-							className='w-3 h-3 shrink-0'
-						>
-							<rect x='1' y='2' width='14' height='13' rx='2' />
-							<path d='M1 6h14M5 1v2M11 1v2' />
-						</svg>
-						{post.event.date}
+					<span
+						className={`inline-flex items-center gap-1.5 text-[12px]  px-2.5 py-1 rounded-lg border ${isFinished ? 'bg-red-500/10 border-red-500/30 text-red-400' : 'text-[#8B9EB7] bg-white/4 border-white/7'}`}
+					>
+						<CalendarIcon width='12' height='12' />
+						{isFinished ? 'Завершен' : formatDate(post.event.date)}
 					</span>
-					<span className='inline-flex items-center gap-1.5 text-[12px] text-[#8B9EB7] px-2.5 py-1 rounded-lg bg-white/4 border border-white/7'>
-						<svg
-							viewBox='0 0 16 16'
-							fill='none'
-							stroke='currentColor'
-							strokeWidth={1.6}
-							strokeLinecap='round'
-							strokeLinejoin='round'
-							className='w-3 h-3 shrink-0'
-						>
-							<rect x='1' y='3' width='14' height='10' rx='1.5' />
-							<path d='M4 7h8M4 10h5' />
-						</svg>
-						{post.event.format}
+
+					<span
+						className={`inline-flex items-center gap-1.5 text-[12px]  px-2.5 py-1 rounded-lg border border-white/7 ${isRecordAvailable ? 'bg-green-500/10 border-green-500/30 text-green-400' : 'text-[#8B9EB7] bg-white/4 border-white/7'}`}
+					>
+						<FormatIcon width='12' height='12' />
+						{isRecordAvailable
+							? 'Доступна запись'
+							: post.event.format}
 					</span>
 				</div>
 			)}
@@ -79,12 +69,12 @@ export default function PostCard({ post }: { post: BlogPost }) {
 				<span className='text-[12px] text-[#4D6280]'>
 					{formatDate(post.date)}
 				</span>
-				{post.type === 'news' && (
+				{!isAnnounce && (
 					<span className='text-[12px] text-[#4D6280]'>
 						{post.readTime}
 					</span>
 				)}
-				{post.type === 'announce' && (
+				{isAnnounce && (
 					<span className='text-[12px] text-amber-500/70'>
 						Бесплатно
 					</span>

@@ -5,7 +5,7 @@ import fourthImage from '@/src/assets/equipment/4.png'
 import fifthImage from '@/src/assets/equipment/5.png'
 import sixthImage from '@/src/assets/equipment/6.png'
 import MonitorIcon from '@/src/components/ui/icons/MonitorIcon'
-import { Product } from '@/src/types/catalog.type'
+import { IProduct } from '@/src/interfaces/catalog.interface'
 import Image from 'next/image'
 
 const imageMap: Record<number, any> = {
@@ -18,7 +18,7 @@ const imageMap: Record<number, any> = {
 }
 
 interface IProps {
-	product: Product
+	product: IProduct
 }
 
 export default function EquipmentItem({ product }: IProps) {

@@ -1,5 +1,8 @@
+import FinishedCTA from '@/src/components/blog/FinishedCTA'
 import Footer from '@/src/components/Footer'
 import Navbar from '@/src/components/Navbar'
+import CalendarIcon from '@/src/components/ui/icons/CalendarIcon'
+import FormatIcon from '@/src/components/ui/icons/FormatIcon'
 import { blogPosts, formatDate, getPostById } from '@/src/content/blog'
 import { ROUTE_BLOG, ROUTE_HOME } from '@/src/routes'
 import type { Metadata } from 'next'
@@ -26,6 +29,8 @@ export default async function AnnouncePage({ params }: Props) {
 	const { id } = await params
 	const post = getPostById(id)
 	if (!post || post.type !== 'announce') notFound()
+
+	const isFinished = post.event.date.getTime() < Date.now()
 
 	return (
 		<main>
@@ -83,58 +88,24 @@ export default async function AnnouncePage({ params }: Props) {
 						</h1>
 
 						{/* Event info strip */}
-						<div className='inline-flex flex-wrap gap-4 p-5 rounded-2xl bg-white/4 border border-white/7'>
+						<div className='inline-flex flex-wrap gap-6 p-5 rounded-2xl bg-white/4 border border-white/7'>
 							<div className='flex items-center gap-2.5 text-[14px]'>
 								<span className='w-8 h-8 rounded-lg bg-brand-blue/10 border border-brand-blue/20 flex items-center justify-center text-brand-blue-light shrink-0'>
-									<svg
-										viewBox='0 0 16 16'
-										fill='none'
-										stroke='currentColor'
-										strokeWidth={1.6}
-										strokeLinecap='round'
-										strokeLinejoin='round'
-										className='w-4 h-4'
-									>
-										<rect
-											x='1'
-											y='2'
-											width='14'
-											height='13'
-											rx='2'
-										/>
-										<path d='M1 6h14M5 1v2M11 1v2' />
-									</svg>
+									<CalendarIcon width='16' height='16' />
 								</span>
 								<div>
 									<div className='text-[11px] text-[#4D6280] uppercase tracking-wide font-semibold'>
 										Дата
 									</div>
 									<div className='text-[#EEF2FF] font-medium'>
-										{post.event.date}
+										{formatDate(post.event.date)}
 									</div>
 								</div>
 							</div>
 							<div className='w-px bg-white/7 self-stretch' />
 							<div className='flex items-center gap-2.5 text-[14px]'>
 								<span className='w-8 h-8 rounded-lg bg-brand-blue/10 border border-brand-blue/20 flex items-center justify-center text-brand-blue-light shrink-0'>
-									<svg
-										viewBox='0 0 16 16'
-										fill='none'
-										stroke='currentColor'
-										strokeWidth={1.6}
-										strokeLinecap='round'
-										strokeLinejoin='round'
-										className='w-4 h-4'
-									>
-										<rect
-											x='1'
-											y='3'
-											width='14'
-											height='10'
-											rx='1.5'
-										/>
-										<path d='M4 7h8' />
-									</svg>
+									<FormatIcon width='16' height='16' />
 								</span>
 								<div>
 									<div className='text-[11px] text-[#4D6280] uppercase tracking-wide font-semibold'>
@@ -253,22 +224,30 @@ export default async function AnnouncePage({ params }: Props) {
 				{/* Registration CTA */}
 				<section className='py-16 bg-navy border-t border-white/7'>
 					<div className='max-w-240 mx-auto px-8 md:px-12'>
-						<div className='max-w-[720px]'>
-							<div className='bg-brand-blue/8 border border-brand-blue/20 rounded-2xl p-8 md:p-10'>
-								<h2 className='font-display text-[clamp(20px,2.5vw,30px)] font-bold text-[#EEF2FF] mb-3'>
-									Хотите участвовать?
-								</h2>
-								<p className='text-[15px] text-[#8B9EB7] mb-7 leading-relaxed'>
-									{post.registration}
-								</p>
+						<div className='max-w-180'>
+							{isFinished ? (
+								<FinishedCTA
+									title={post.title}
+									recordLink={post.recordUrl}
+								/>
+							) : (
+								<div className='bg-brand-blue/8 border border-brand-blue/20 rounded-2xl p-8 md:p-10'>
+									<h2 className='font-display text-[clamp(20px,2.5vw,30px)] font-bold text-[#EEF2FF] mb-3'>
+										Хотите участвовать?
+									</h2>
+									<p className='text-[15px] text-[#8B9EB7] mb-7 leading-relaxed'>
+										Позвоните нашим менеджерам, чтобы
+										подтвердить участие.
+									</p>
 
-								<a
-									href={`tel:${post.ctaPhone}`}
-									className='inline-flex items-center gap-2 px-7 py-3.5 rounded-xl bg-brand-blue text-white text-[15px] font-semibold hover:bg-brand-blue-light hover:-translate-y-0.5 transition-all duration-200 no-underline'
-								>
-									Позвонить
-								</a>
-							</div>
+									<a
+										href={`tel:${post.ctaPhone}`}
+										className='inline-flex items-center gap-2 px-7 py-3.5 rounded-xl bg-brand-blue text-white text-[15px] font-semibold hover:bg-brand-blue-light hover:-translate-y-0.5 transition-all duration-200 no-underline'
+									>
+										Позвонить
+									</a>
+								</div>
+							)}
 						</div>
 					</div>
 				</section>

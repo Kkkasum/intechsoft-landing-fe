@@ -1,8 +1,8 @@
 import OneCIcon from '@/src/components/ui/icons/1CIcon'
-import { Product } from '@/src/types/catalog.type'
+import { IProduct } from '@/src/interfaces/catalog.interface'
 
 interface IProps {
-	product: Product
+	product: IProduct
 }
 
 export default function ProductRow({ product }: IProps) {

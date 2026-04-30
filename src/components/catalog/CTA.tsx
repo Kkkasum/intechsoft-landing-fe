@@ -1,10 +1,38 @@
 'use client'
 
 import { TicketModal } from '@/src/components/TicketModal'
+import { EAction } from '@/src/interfaces/ticket.interface'
+import {
+	ROUTE_CATALOG_1C_INDUSTRY,
+	ROUTE_CATALOG_1C_PRODUCTS,
+	ROUTE_CATALOG_EQUIPMENT,
+} from '@/src/routes'
+import { ticketsCreateTicket } from '@/src/services/tickets.service'
+import { usePathname } from 'next/navigation'
 import { useState } from 'react'
 
 export default function CTA() {
+	const pathname = usePathname()
 	const [modalOpen, setModalOpen] = useState<boolean>(false)
+
+	const onSubmit = async (name: string, phone: string, email?: string) => {
+		let comment: string = ''
+		if (pathname === ROUTE_CATALOG_EQUIPMENT) {
+			comment = 'Торговое оборудование'
+		} else if (pathname === ROUTE_CATALOG_1C_PRODUCTS) {
+			comment = '1С-Продукты'
+		} else if (pathname === ROUTE_CATALOG_1C_INDUSTRY) {
+			comment = 'Отраслевые решения 1С'
+		}
+
+		await ticketsCreateTicket({
+			full_name: name,
+			phone,
+			email,
+			action: EAction.CATALOG,
+			comment,
+		})
+	}
 
 	return (
 		<>
@@ -31,7 +59,12 @@ export default function CTA() {
 				</div>
 			</section>
 
-			{modalOpen && <TicketModal onClose={() => setModalOpen(false)} />}
+			{modalOpen && (
+				<TicketModal
+					onClose={() => setModalOpen(false)}
+					onSubmit={onSubmit}
+				/>
+			)}
 		</>
 	)
 }

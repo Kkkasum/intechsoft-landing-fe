@@ -1,6 +1,6 @@
-import { Category } from '@/src/types/catalog.type'
+import { ICategory } from '@/src/interfaces/catalog.interface'
 
-export const industryCatalog: Category[] = [
+export const industryCatalog: ICategory[] = [
 	{
 		id: 'food',
 		label: 'Пищевая промышленность',
@@ -385,7 +385,7 @@ export const industryCatalog: Category[] = [
 	},
 ]
 
-export const productsCatalog: Category[] = [
+export const productsCatalog: ICategory[] = [
 	{
 		id: 'popular',
 		label: 'Популярные товары',
@@ -718,7 +718,7 @@ export const productsCatalog: Category[] = [
 	},
 ]
 
-export const equipmentCatalog: Category[] = [
+export const equipmentCatalog: ICategory[] = [
 	{
 		id: 'kassy',
 		label: 'Онлайн-кассы',

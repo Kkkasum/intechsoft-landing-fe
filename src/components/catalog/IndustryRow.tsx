@@ -1,9 +1,9 @@
 import MonitorIcon from '@/src/components/ui/icons/MonitorIcon'
-import type { Product } from '@/src/types/catalog.type'
+import type { IProduct } from '@/src/interfaces/catalog.interface'
 import type { ReactNode } from 'react'
 
 interface IProps {
-	product: Product
+	product: IProduct
 	icon?: ReactNode
 }
 
