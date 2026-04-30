@@ -1,7 +1,7 @@
 'use client'
 
-import { EAction } from '@/src/interfaces/ticket.interface'
-import { ticketsCreateTicket } from '@/src/services/tickets.service'
+import { EAction } from '@/src/interfaces/applicants.interface'
+import { applicantsCreateApplicant } from '@/src/services/applicants.service.'
 import { validatePhone } from '@/src/utils/phone.utils'
 import Link from 'next/link'
 import { useState } from 'react'
@@ -28,7 +28,7 @@ export default function FinishedCTA({
 			return
 		}
 
-		await ticketsCreateTicket({
+		await applicantsCreateApplicant({
 			full_name: name,
 			phone: phone,
 			email: email,

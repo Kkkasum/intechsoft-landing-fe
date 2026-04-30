@@ -1,13 +1,13 @@
 'use client'
 
-import { TicketModal } from '@/src/components/TicketModal'
-import { EAction } from '@/src/interfaces/ticket.interface'
+import { ApplicantModal } from '@/src/components/ApplicantModal'
+import { EAction } from '@/src/interfaces/applicants.interface'
 import {
 	ROUTE_CATALOG_1C_INDUSTRY,
 	ROUTE_CATALOG_1C_PRODUCTS,
 	ROUTE_CATALOG_EQUIPMENT,
 } from '@/src/routes'
-import { ticketsCreateTicket } from '@/src/services/tickets.service'
+import { applicantsCreateApplicant } from '@/src/services/applicants.service.'
 import { usePathname } from 'next/navigation'
 import { useState } from 'react'
 
@@ -25,7 +25,7 @@ export default function CTA() {
 			comment = 'Отраслевые решения 1С'
 		}
 
-		await ticketsCreateTicket({
+		await applicantsCreateApplicant({
 			full_name: name,
 			phone,
 			email,
@@ -60,7 +60,7 @@ export default function CTA() {
 			</section>
 
 			{modalOpen && (
-				<TicketModal
+				<ApplicantModal
 					onClose={() => setModalOpen(false)}
 					onSubmit={onSubmit}
 				/>

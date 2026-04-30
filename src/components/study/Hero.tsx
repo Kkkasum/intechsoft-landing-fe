@@ -48,7 +48,7 @@ export default function Hero() {
 
 				<div className='flex flex-wrap gap-4'>
 					<a
-						href='mailto:info@intechsoft.ru'
+						href='/study#cta'
 						className='inline-flex items-center px-8 py-3.5 rounded-xl bg-brand-blue text-white text-base font-semibold hover:bg-brand-blue-light hover:-translate-y-0.5 transition-all duration-200 no-underline'
 					>
 						Записаться на курс

@@ -1,15 +1,15 @@
 'use client'
 
-import { TicketModal } from '@/src/components/TicketModal'
-import { EAction } from '@/src/interfaces/ticket.interface'
-import { ticketsCreateTicket } from '@/src/services/tickets.service'
+import { ApplicantModal } from '@/src/components/ApplicantModal'
+import { EAction } from '@/src/interfaces/applicants.interface'
+import { applicantsCreateApplicant } from '@/src/services/applicants.service.'
 import { useState } from 'react'
 
 export default function CTA() {
 	const [modalOpen, setModalOpen] = useState<boolean>(false)
 
 	const onSubmit = async (name: string, phone: string, email?: string) => {
-		await ticketsCreateTicket({
+		await applicantsCreateApplicant({
 			full_name: name,
 			phone,
 			email,
@@ -19,7 +19,10 @@ export default function CTA() {
 
 	return (
 		<>
-			<section className='relative py-24 overflow-hidden bg-navy'>
+			<section
+				id='cta'
+				className='relative py-24 overflow-hidden bg-navy'
+			>
 				<div className='max-w-300 mx-auto px-8 md:px-12 relative text-center'>
 					<h2 className='font-display text-[clamp(28px,3.5vw,44px)] font-bold leading-tight tracking-tight mb-4'>
 						Готовы начать обучение?
@@ -47,7 +50,7 @@ export default function CTA() {
 			</section>
 
 			{modalOpen && (
-				<TicketModal
+				<ApplicantModal
 					onClose={() => setModalOpen(false)}
 					onSubmit={onSubmit}
 				/>

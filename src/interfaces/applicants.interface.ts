@@ -8,7 +8,7 @@ export enum EAction {
 	RECORD = 'record',
 }
 
-export interface ICreateTicketRequest {
+export interface ICreateApplicantRequest {
 	full_name: string
 	phone: string
 	email?: string

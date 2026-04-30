@@ -1,15 +1,15 @@
 'use client'
 
-import { TicketModal } from '@/src/components/TicketModal'
-import { EAction } from '@/src/interfaces/ticket.interface'
-import { ticketsCreateTicket } from '@/src/services/tickets.service'
+import { ApplicantModal } from '@/src/components/ApplicantModal'
+import { EAction } from '@/src/interfaces/applicants.interface'
+import { applicantsCreateApplicant } from '@/src/services/applicants.service.'
 import { useState } from 'react'
 
 export default function CTA() {
 	const [modalOpen, setModalOpen] = useState<boolean>(false)
 
 	const onSubmit = async (name: string, phone: string, email?: string) => {
-		await ticketsCreateTicket({
+		await applicantsCreateApplicant({
 			full_name: name,
 			phone,
 			email,
@@ -48,7 +48,7 @@ export default function CTA() {
 			</section>
 
 			{modalOpen && (
-				<TicketModal
+				<ApplicantModal
 					onClose={() => setModalOpen(false)}
 					onSubmit={onSubmit}
 				/>

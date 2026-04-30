@@ -4,7 +4,7 @@ import CrossIcon from '@/src/components/ui/icons/CrossIcon'
 import { useState } from 'react'
 import { validatePhone } from '../utils/phone.utils'
 
-export function TicketModal({
+export function ApplicantModal({
 	onClose,
 	onSubmit,
 }: {
