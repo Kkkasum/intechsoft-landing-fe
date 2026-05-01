@@ -1,4 +1,5 @@
 import { VendorsSlider } from '@/src/components/home/sliders/VendorsSlider'
+import { CountUp } from '@/src/components/ui/CountUp'
 import MonitorIcon from '@/src/components/ui/icons/MonitorIcon'
 import { ClientsSlider } from './sliders/ClientsSlider'
 
@@ -32,7 +33,7 @@ const features = [
 const metrics = [
 	{ label: 'Опыт работы', value: '25 лет' },
 	{ label: 'Проектов автоматизировано', value: '>14 000' },
-	{ label: 'Ср. время решения задач', value: '~15 мин' },
+	{ label: 'Ср. время реакции на ваши обращения', value: '~15 мин' },
 ]
 
 export default function About() {
@@ -78,7 +79,7 @@ export default function About() {
 						</div>
 					</div>
 
-					{/* Right: metrics */}
+					{/* Right: metrics, vendors */}
 					<div className='flex flex-col items-center gap-5 mt-10'>
 						<div className='bg-white/4 border border-white/13 rounded-2xl p-8 w-full'>
 							<h3 className='font-display text-[22px] font-bold leading-snug mb-8'>
@@ -88,21 +89,12 @@ export default function About() {
 							</h3>
 							<div className='flex flex-col'>
 								{metrics.map((m, i) => (
-									<div
+									<CountUp
 										key={m.label}
-										className={`flex justify-between items-baseline py-4 ${
-											i < metrics.length - 1
-												? 'border-b border-white/7'
-												: ''
-										}`}
-									>
-										<span className='text-sm text-[#8B9EB7]'>
-											{m.label}
-										</span>
-										<span className='font-display text-xl font-bold text-brand-blue-light'>
-											{m.value}
-										</span>
-									</div>
+										{...m}
+										index={i}
+										total={metrics.length}
+									/>
 								))}
 							</div>
 						</div>

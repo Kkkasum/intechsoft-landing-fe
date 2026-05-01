@@ -11,7 +11,6 @@ import OneCBitrixLogo from '@/src/assets/vendors/onecbitrix.png'
 import RarusLogo from '@/src/assets/vendors/rarus.png'
 import RKeeperLogo from '@/src/assets/vendors/rkeeper.png'
 import SoftBalanceLogo from '@/src/assets/vendors/softbalance.png'
-import TaxComLogo from '@/src/assets/vendors/taxcom.png'
 import LeftArrowIcon from '@/src/components/ui/icons/LeftArrowIcon'
 import RightArrowIcon from '@/src/components/ui/icons/RightArrowIcon'
 import Image from 'next/image'
@@ -109,11 +108,6 @@ const slides = [
 					width={200}
 					height={120}
 				/>
-			),
-		},
-		{
-			icon: (
-				<Image src={TaxComLogo} alt='TAXCOM' width={200} height={120} />
 			),
 		},
 	],

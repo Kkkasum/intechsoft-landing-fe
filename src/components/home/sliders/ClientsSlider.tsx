@@ -6,16 +6,27 @@ import astradentImage from '@/src/assets/clients/astradent.jpg'
 import kadescentrImage from '@/src/assets/clients/kadescentr.jpg'
 import medCollegeImage from '@/src/assets/clients/med-college.jpg'
 import sportLeaderImage from '@/src/assets/clients/sport-leader.jpg'
+import surupackImage from '@/src/assets/clients/surupack.jpg'
+import ArrowIcon from '@/src/components/ui/icons/ArrowIcon'
 import LeftArrowIcon from '@/src/components/ui/icons/LeftArrowIcon'
 import RightArrowIcon from '@/src/components/ui/icons/RightArrowIcon'
 import { ROUTE_CASES } from '@/src/routes'
 import Image from 'next/image'
 import Link from 'next/link'
 import { FC, useState } from 'react'
-import ArrowIcon from '../../ui/icons/ArrowIcon'
 
 const slides = [
 	[
+		{
+			icon: (
+				<Image
+					src={surupackImage}
+					alt='SURUPACK'
+					width={200}
+					height={120}
+				/>
+			),
+		},
 		{
 			icon: (
 				<Image
@@ -36,6 +47,8 @@ const slides = [
 				/>
 			),
 		},
+	],
+	[
 		{
 			icon: (
 				<Image
@@ -46,8 +59,6 @@ const slides = [
 				/>
 			),
 		},
-	],
-	[
 		{
 			icon: (
 				<Image
@@ -68,6 +79,8 @@ const slides = [
 				/>
 			),
 		},
+	],
+	[
 		{
 			icon: (
 				<Image
