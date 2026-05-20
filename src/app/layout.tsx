@@ -1,3 +1,4 @@
+import { YandexMetrics } from '@/src/components/YandexMetrics'
 import type { Metadata } from 'next'
 import './globals.css'
 
@@ -18,7 +19,7 @@ export default function RootLayout({
 	children,
 }: Readonly<{ children: React.ReactNode }>) {
 	return (
-		<html lang='ru' suppressHydrationWarning>
+		<html lang='ru'>
 			<head>
 				<link rel='preconnect' href='https://fonts.googleapis.com' />
 				<link
@@ -31,7 +32,10 @@ export default function RootLayout({
 					rel='stylesheet'
 				/>
 			</head>
-			<body>{children}</body>
+			<body>
+				{children}
+				<YandexMetrics />
+			</body>
 		</html>
 	)
 }
