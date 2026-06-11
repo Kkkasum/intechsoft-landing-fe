@@ -3,6 +3,7 @@ export interface IProduct {
 	name: string
 	subcat?: string
 	badge?: 'in_stock' | 'on_order'
+	price?: string
 }
 
 export interface ICategory {

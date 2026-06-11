@@ -34,13 +34,10 @@ export default function Navbar() {
 						className='rounded-lg'
 					/>
 				</div>
-				<div className='font-display text-[13px] font-semibold text-[#EEF2FF] leading-tight tracking-wide'>
-					ИНТЕХ<span className='text-brand-blue-light'>-</span>СОФТ
-					<br />
-					<span className='font-body text-[10px] text-[#8B9EB7] font-normal tracking-widest'>
-						Группа компаний
-					</span>
-				</div>
+				<span className='font-display text-[13px] font-semibold text-[#EEF2FF] tracking-wide'>
+					ИНТЕХ
+					<span className='text-brand-blue-light'>СОФТ</span>
+				</span>
 			</Link>
 
 			{/* Desktop nav */}

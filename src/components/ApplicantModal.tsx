@@ -1,7 +1,9 @@
 'use client'
 
 import CrossIcon from '@/src/components/ui/icons/CrossIcon'
+import Link from 'next/link'
 import { useState } from 'react'
+import { ROUTE_DATA } from '../routes'
 import { validatePhone } from '../utils/phone.utils'
 
 export function ApplicantModal({
@@ -113,13 +115,25 @@ export function ApplicantModal({
 						</span>
 					)}
 
-					<button
-						type='submit'
-						disabled={!!error}
-						className='mt-2 w-full py-3.5 rounded-xl bg-brand-blue text-white text-[15px] font-semibold hover:bg-brand-blue-light hover:-translate-y-0.5 transition-all duration-200 cursor-pointer disabled:opacity-45 disabled:cursor-not-allowed'
-					>
-						Отправить заявку
-					</button>
+					<div className='flex flex-col items-start'>
+						<Link
+							target='_blank'
+							href={ROUTE_DATA}
+							className='w-full text-start text-brand-blue text-[13px] font-semibold cursor-pointer'
+						>
+							Политика конфиденциальности и обработки персональных
+							данных
+						</Link>
+						{/* SHOW */}
+
+						<button
+							type='submit'
+							disabled={!!error}
+							className='mt-2 w-full py-3.5 rounded-xl bg-brand-blue text-white text-[15px] font-semibold hover:bg-brand-blue-light hover:-translate-y-0.5 transition-all duration-200 cursor-pointer disabled:opacity-45 disabled:cursor-not-allowed'
+						>
+							Отправить заявку
+						</button>
+					</div>
 				</form>
 			</div>
 		</div>

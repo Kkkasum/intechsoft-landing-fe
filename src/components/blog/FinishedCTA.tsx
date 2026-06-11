@@ -1,6 +1,7 @@
 'use client'
 
 import { EAction } from '@/src/interfaces/applicants.interface'
+import { ROUTE_DATA } from '@/src/routes'
 import { applicantsCreateApplicant } from '@/src/services/applicants.service.'
 import { validatePhone } from '@/src/utils/phone.utils'
 import Link from 'next/link'
@@ -125,13 +126,25 @@ export default function FinishedCTA({
 							</span>
 						)}
 
-						<button
-							type='submit'
-							disabled={!!error}
-							className='mt-2 w-full py-3.5 rounded-xl bg-brand-blue text-white text-[15px] font-semibold hover:bg-brand-blue-light hover:-translate-y-0.5 transition-all duration-200 cursor-pointer disabled:opacity-45 disabled:cursor-not-allowed'
-						>
-							Подтвердить
-						</button>
+						<div className='flex flex-col items-start'>
+							<Link
+								target='_blank'
+								href={ROUTE_DATA}
+								className='w-full text-start text-brand-blue text-[13px] font-semibold cursor-pointer'
+							>
+								Политика конфиденциальности и обработки
+								персональных данных
+							</Link>
+							{/* SHOW */}
+
+							<button
+								type='submit'
+								disabled={!!error}
+								className='mt-2 w-full py-3.5 rounded-xl bg-brand-blue text-white text-[15px] font-semibold hover:bg-brand-blue-light hover:-translate-y-0.5 transition-all duration-200 cursor-pointer disabled:opacity-45 disabled:cursor-not-allowed'
+							>
+								Подтвердить
+							</button>
+						</div>
 					</form>
 				</>
 			)}

@@ -402,6 +402,7 @@ export const productsCatalog: ICategory[] = [
 				name: '1С:Бухгалтерия 8',
 				subcat: 'regulated',
 				badge: 'in_stock',
+				price: '123',
 			},
 			{
 				id: 2,

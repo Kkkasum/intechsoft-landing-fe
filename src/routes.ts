@@ -13,3 +13,5 @@ export const ROUTE_STUDY = '/study'
 export const ROUTE_BLOG = '/blog'
 
 export const ROUTE_CASES = '/cases'
+
+export const ROUTE_DATA = '/data'

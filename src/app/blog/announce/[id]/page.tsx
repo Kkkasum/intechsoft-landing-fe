@@ -16,7 +16,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 	const post = getPostById(id)
 	if (!post || post.type !== 'announce') return {}
 	return {
-		title: `${post.title} — Интех-Софт`,
+		title: `${post.title} — ИнтехСофт`,
 		description: post.excerpt,
 	}
 }

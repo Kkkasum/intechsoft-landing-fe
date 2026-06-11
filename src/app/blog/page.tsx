@@ -7,9 +7,9 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-	title: 'Блог — Интех-Софт',
+	title: 'Блог — ИнтехСофт',
 	description:
-		'Статьи и анонсы мероприятий от Интех-Софт: маркировка, онлайн-кассы, 1С, автоматизация бизнеса в Махачкале.',
+		'Статьи и анонсы мероприятий от ИнтехСофт: маркировка, онлайн-кассы, 1С, автоматизация бизнеса в Махачкале.',
 }
 
 const news = blogPosts.filter(p => p.type === 'news')

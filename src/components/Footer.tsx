@@ -54,8 +54,9 @@ export default function Footer() {
 							</div>
 							<span className='font-display text-[13px] font-semibold text-[#EEF2FF] tracking-wide'>
 								ИНТЕХ
-								<span className='text-brand-blue-light'>-</span>
-								СОФТ
+								<span className='text-brand-blue-light'>
+									СОФТ
+								</span>
 							</span>
 						</Link>
 						<p className='text-sm text-[#8B9EB7] leading-relaxed max-w-55'>
@@ -141,7 +142,8 @@ export default function Footer() {
 				{/* Bottom bar */}
 				<div className='pt-7 border-t border-white/7 flex flex-col sm:flex-row justify-between items-center gap-3'>
 					<p className='text-[13px] text-[#4D6280]'>
-						© 2026 ООО «Интех-Софт». Все права защищены.
+						© 2026 ООО «Интех-Софт». Все права защищены. ОГРН
+						1020502524998 ИНН 0561045110
 					</p>
 					<a
 						href='mailto:info@intechsoft.ru'
