@@ -2,6 +2,7 @@
 
 import CTA from '@/src/components/catalog/CTA'
 import EquipmentItem from '@/src/components/catalog/EquipmentItem'
+import EquipmentRow from '@/src/components/catalog/EquipmentRow'
 import Footer from '@/src/components/Footer'
 import Navbar from '@/src/components/Navbar'
 import { equipmentCatalog } from '@/src/content/catalog'
@@ -121,10 +122,20 @@ export default function EquipmentPage() {
 							</p>
 
 							{/* Products list */}
-							<div className='grid grid-cols-3 gap-3'>
-								{products.map(p => (
-									<EquipmentItem key={p.id} product={p} />
-								))}
+							<div
+								className={
+									category.layout === 'list'
+										? 'flex flex-col gap-3'
+										: 'grid grid-cols-3 gap-3'
+								}
+							>
+								{products.map(p =>
+									category.layout === 'list' ? (
+										<EquipmentRow key={p.id} product={p} />
+									) : (
+										<EquipmentItem key={p.id} product={p} />
+									)
+								)}
 
 								{products.length === 0 && (
 									<div className='text-center py-20 text-[#4D6280]'>

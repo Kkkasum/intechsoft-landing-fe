@@ -11,4 +11,5 @@ export interface ICategory {
 	label: string
 	subcats: { id: string; label: string }[]
 	products: IProduct[]
+	layout?: 'grid' | 'list'
 }
