@@ -14,7 +14,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 	const item = getCaseById(id)
 	if (!item) return {}
 	return {
-		title: `${item.company} — кейс ИнтехСофт`,
+		title: `${item.company} — кейс`,
 		description: item.excerpt,
 	}
 }

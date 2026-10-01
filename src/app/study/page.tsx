@@ -9,7 +9,7 @@ import Review from '@/src/components/study/Review'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-	title: 'Курсы 1С в Махачкале — ИнтехСофт',
+	title: 'Курсы 1С в Махачкале',
 	description:
 		'Очные и дистанционные курсы по 1С в Махачкале. Обучение бухгалтеров, менеджеров и руководителей. Сертификат по окончании. Группы и индивидуальные занятия.',
 }

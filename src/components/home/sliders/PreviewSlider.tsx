@@ -69,6 +69,7 @@ export const PreviewSlider: FC = () => {
 					src={slide.image}
 					alt={slide.title}
 					fill
+					sizes='(min-width: 1024px) 50vw, 100vw'
 					className='object-cover object-center transition-transform duration-500 group-hover:scale-[1.03]'
 					priority
 				/>

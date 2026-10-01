@@ -4,7 +4,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-	title: 'Политика конфиденциальности — ИнтехСофт',
+	title: 'Политика конфиденциальности',
 	description:
 		'Политика в отношении обработки персональных данных пользователей сайта intechsoft.ru',
 }

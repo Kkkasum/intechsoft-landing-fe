@@ -7,7 +7,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-	title: 'Кейсы — ИнтехСофт',
+	title: 'Кейсы автоматизации бизнеса в Дагестане',
 	description:
 		'Реальные проекты автоматизации бизнеса в Дагестане: образование, медицина, торговля, строительство и общепит.',
 }

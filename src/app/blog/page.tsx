@@ -7,7 +7,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-	title: 'Блог — ИнтехСофт',
+	title: 'Блог: 1С, онлайн-кассы, маркировка',
 	description:
 		'Статьи и анонсы мероприятий от ИнтехСофт: маркировка, онлайн-кассы, 1С, автоматизация бизнеса в Махачкале.',
 }

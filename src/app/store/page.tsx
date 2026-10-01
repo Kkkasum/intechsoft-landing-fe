@@ -7,7 +7,7 @@ import Solutions from '@/src/components/store/Solutions'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-	title: 'Автоматизация магазина в Махачкале — ИнтехСофт',
+	title: 'Автоматизация магазина в Махачкале',
 	description:
 		'Автоматизация розничных магазинов на базе 1С: учёт продаж, склад, онлайн-кассы, маркировка. Внедрение и сопровождение в Махачкале.',
 }
