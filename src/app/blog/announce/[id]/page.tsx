@@ -1,9 +1,11 @@
 import FinishedCTA from '@/src/components/blog/FinishedCTA'
+import EventLanding from '@/src/components/blog/EventLanding'
 import Footer from '@/src/components/Footer'
 import Navbar from '@/src/components/Navbar'
 import CalendarIcon from '@/src/components/ui/icons/CalendarIcon'
 import FormatIcon from '@/src/components/ui/icons/FormatIcon'
 import { blogPosts, formatDate, getPostById } from '@/src/content/blog'
+import { getEventLanding } from '@/src/content/event-landings'
 import { ROUTE_BLOG, ROUTE_HOME } from '@/src/routes'
 import type { Metadata } from 'next'
 import Link from 'next/link'
@@ -31,6 +33,17 @@ export default async function AnnouncePage({ params }: Props) {
 	if (!post || post.type !== 'announce') notFound()
 
 	const isFinished = post.event.date.getTime() < Date.now()
+	const landing = getEventLanding(post.id)
+
+	if (landing) {
+		return (
+			<main>
+				<Navbar />
+				<EventLanding landing={landing} />
+				<Footer />
+			</main>
+		)
+	}
 
 	return (
 		<main>
